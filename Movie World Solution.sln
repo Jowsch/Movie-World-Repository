@@ -1,13 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.645
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieWorldBackOffice", "MovieWorldBackOffice\MovieWorldBackOffice.csproj", "{F907520A-E7EA-4FE7-8F47-79229B8A7C55}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MovieWorldFrontOffice", "MovieWorldFrontOffice\", "{C38D58F5-2436-4565-B1EF-43867CD420CA}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		ProjectReferences = "{9ca84d8c-7309-41a1-aa0c-41c56f1c7d9d}|MovieWorld Testing.dll;{f5cb4219-d1c5-4c26-8bbe-4aa610697438}|MovieWorldClasses.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_50861"
 		Debug.AspNetCompiler.PhysicalPath = "MovieWorldFrontOffice\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50861\"
@@ -29,7 +30,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MovieWorldFrontOffice", "Mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieWorldClasses", "MovieWorldClasses\MovieWorldClasses.csproj", "{F5CB4219-D1C5-4C26-8BBE-4AA610697438}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieWorld Testing", "MovieWorld Testing\MovieWorld Testing.csproj", "{9CA84D8C-7309-41A1-AA0C-41C56F1C7D9D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieWorldTesting", "MovieWorld Testing\MovieWorldTesting.csproj", "{9CA84D8C-7309-41A1-AA0C-41C56F1C7D9D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
