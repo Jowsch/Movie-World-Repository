@@ -8,7 +8,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MovieWorldFrontOffice", "MovieWorldFrontOffice\", "{C38D58F5-2436-4565-B1EF-43867CD420CA}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
-		ProjectReferences = "{9ca84d8c-7309-41a1-aa0c-41c56f1c7d9d}|MovieWorld Testing.dll;{f5cb4219-d1c5-4c26-8bbe-4aa610697438}|MovieWorldClasses.dll;"
+		ProjectReferences = "{f5cb4219-d1c5-4c26-8bbe-4aa610697438}|MovieWorldClasses.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_50861"
 		Debug.AspNetCompiler.PhysicalPath = "MovieWorldFrontOffice\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50861\"

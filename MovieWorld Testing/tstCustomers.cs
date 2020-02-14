@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MovieWorldClasses;
 
 namespace MovieWorld_Testing
 {
@@ -7,7 +8,7 @@ namespace MovieWorld_Testing
     public class tstCustomers
     {
         [TestMethod]
-        public void CustomerNoExists()
+        public void InstanceOK()
         {
             clsCustomers ACustomer = new clsCustomers();
             Assert.IsNotNull(ACustomer);

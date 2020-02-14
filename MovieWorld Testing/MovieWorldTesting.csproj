@@ -49,7 +49,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsCustomers.cs" />
     <Compile Include="clsFilm.cs" />
     <Compile Include="tstCustomers.cs" />
     <Compile Include="UnitTest1.cs" />
@@ -58,6 +57,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MovieWorldClasses\MovieWorldClasses.csproj">
+      <Project>{f5cb4219-d1c5-4c26-8bbe-4aa610697438}</Project>
+      <Name>MovieWorldClasses</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
