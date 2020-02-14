@@ -10,5 +10,11 @@ namespace MovieWorldClasses
         public string last_name { get; set; }
         public string email { get; set; }
         public bool active { get; set; }
+
+        public bool Find(int customerNum)
+        {
+            customer_id = 21;
+            return true;
+        }
     }
 }

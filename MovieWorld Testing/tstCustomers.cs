@@ -74,5 +74,32 @@ namespace MovieWorld_Testing
             Assert.AreEqual(ACustomer.active, TestData);
         }
 
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsCustomers ACustomer = new clsCustomers();
+            Boolean Found = false;
+
+            Int32 CustomerNum = 1;
+
+            Found = ACustomer.Find(CustomerNum);
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestCustomerNumFound()
+        {
+            clsCustomers ACustomer = new clsCustomers();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 CustomerNum = 21;
+            Found = ACustomer.Find(CustomerNum);
+            if(ACustomer.customer_id != 21)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
     }
 }
