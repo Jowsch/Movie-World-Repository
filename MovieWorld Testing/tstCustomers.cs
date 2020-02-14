@@ -80,7 +80,7 @@ namespace MovieWorld_Testing
             clsCustomers ACustomer = new clsCustomers();
             Boolean Found = false;
 
-            Int32 CustomerNum = 1;
+            Int32 CustomerNum = 26;
 
             Found = ACustomer.Find(CustomerNum);
             Assert.IsTrue(Found);
@@ -92,9 +92,84 @@ namespace MovieWorld_Testing
             clsCustomers ACustomer = new clsCustomers();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerNum = 21;
+            Int32 CustomerNum = 26;
             Found = ACustomer.Find(CustomerNum);
-            if(ACustomer.customer_id != 21)
+            if(ACustomer.customer_id != 26)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestFirstNameFound()
+        {
+            clsCustomers ACustomer = new clsCustomers();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 CustomerNum = 26;
+            Found = ACustomer.Find(CustomerNum);
+            if (ACustomer.first_name != "Joe")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestLastNameFound()
+        {
+            clsCustomers ACustomer = new clsCustomers();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 CustomerNum = 26;
+            Found = ACustomer.Find(CustomerNum);
+            if (ACustomer.last_name != "Bloggs")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestEmailFound()
+        {
+            clsCustomers ACustomer = new clsCustomers();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 CustomerNum = 26;
+            Found = ACustomer.Find(CustomerNum);
+            if (ACustomer.email != "JoeBloggs@outlook.com")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestActiveFound()
+        {
+            clsCustomers ACustomer = new clsCustomers();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 CustomerNum = 26;
+            Found = ACustomer.Find(CustomerNum);
+            if (ACustomer.active != true)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestCreateDateFound()
+        {
+            clsCustomers ACustomer = new clsCustomers();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 CustomerNum = 26;
+            Found = ACustomer.Find(CustomerNum);
+            if (ACustomer.create_date != Convert.ToDateTime("13/01/1999"))
             {
                 OK = false;
             }

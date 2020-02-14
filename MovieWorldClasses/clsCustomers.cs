@@ -4,16 +4,83 @@ namespace MovieWorldClasses
 {
     public class clsCustomers
     {
-        public int customer_id { get; set; }
-        public DateTime create_date { get; set; }
-        public string first_name { get; set; }
-        public string last_name { get; set; }
-        public string email { get; set; }
-        public bool active { get; set; }
+        private Int32 mCustomerID;
+        private String mFirstName;
+        private DateTime mCreateDate;
+        private String mLastName;
+        private String mEmail;
+        private bool mActive;
+        public Int32 customer_id
+        {
+            get
+            {
+                return mCustomerID;
+            }
+            set
+            {
+                mCustomerID = value;
+            }
+        }
+        public DateTime create_date {
+            get
+            {
+                return mCreateDate;
+            }
+            set
+            {
+                mCreateDate = value;
+            }
+        }
+        public string first_name {
+            get
+            {
+                return mFirstName;
+            }
+
+            set
+            {
+                mFirstName = value;
+            }
+        }
+        public string last_name {
+            get
+            {
+                return mLastName;
+            }
+            set
+            {
+                mLastName = value;
+            }
+        }
+        public string email {
+            get
+            {
+                return mEmail;
+            }
+            set
+            {
+                mEmail = value;
+            }
+        }
+        public bool active {
+            get
+            {
+                return mActive;
+            }
+            set
+            {
+                mActive = value;
+            }
+        }
 
         public bool Find(int customerNum)
         {
-            customer_id = 21;
+            mCustomerID = 26;
+            mFirstName = "Joe";
+            mLastName = "Bloggs";
+            mEmail = "JoeBloggs@outlook.com";
+            mActive = true;
+            mCreateDate = Convert.ToDateTime("13/01/1999");
             return true;
         }
     }
