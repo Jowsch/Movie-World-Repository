@@ -80,7 +80,7 @@ namespace MovieWorld_Testing
             clsCustomers ACustomer = new clsCustomers();
             Boolean Found = false;
 
-            Int32 CustomerNum = 26;
+            Int32 CustomerNum = 1;
 
             Found = ACustomer.Find(CustomerNum);
             Assert.IsTrue(Found);
@@ -92,9 +92,9 @@ namespace MovieWorld_Testing
             clsCustomers ACustomer = new clsCustomers();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerNum = 26;
+            Int32 CustomerNum = 1;
             Found = ACustomer.Find(CustomerNum);
-            if(ACustomer.customer_id != 26)
+            if(ACustomer.customer_id != 1)
             {
                 OK = false;
             }
@@ -107,7 +107,7 @@ namespace MovieWorld_Testing
             clsCustomers ACustomer = new clsCustomers();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerNum = 26;
+            Int32 CustomerNum = 1;
             Found = ACustomer.Find(CustomerNum);
             if (ACustomer.first_name != "Joe")
             {
@@ -122,9 +122,9 @@ namespace MovieWorld_Testing
             clsCustomers ACustomer = new clsCustomers();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerNum = 26;
+            Int32 CustomerNum = 1;
             Found = ACustomer.Find(CustomerNum);
-            if (ACustomer.last_name != "Bloggs")
+            if (ACustomer.last_name != "Schofield")
             {
                 OK = false;
             }
@@ -137,9 +137,9 @@ namespace MovieWorld_Testing
             clsCustomers ACustomer = new clsCustomers();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerNum = 26;
+            Int32 CustomerNum = 1;
             Found = ACustomer.Find(CustomerNum);
-            if (ACustomer.email != "JoeBloggs@outlook.com")
+            if (ACustomer.email != "joescho@outlook.com")
             {
                 OK = false;
             }
@@ -152,7 +152,7 @@ namespace MovieWorld_Testing
             clsCustomers ACustomer = new clsCustomers();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerNum = 26;
+            Int32 CustomerNum = 1;
             Found = ACustomer.Find(CustomerNum);
             if (ACustomer.active != true)
             {
@@ -167,9 +167,9 @@ namespace MovieWorld_Testing
             clsCustomers ACustomer = new clsCustomers();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerNum = 26;
+            Int32 CustomerNum = 1;
             Found = ACustomer.Find(CustomerNum);
-            if (ACustomer.create_date != Convert.ToDateTime("13/01/1999"))
+            if (ACustomer.create_date != Convert.ToDateTime("30-01-2020"))
             {
                 OK = false;
             }
