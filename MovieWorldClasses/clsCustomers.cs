@@ -75,13 +75,25 @@ namespace MovieWorldClasses
 
         public bool Find(int customerNum)
         {
-            mCustomerID = 26;
-            mFirstName = "Joe";
-            mLastName = "Bloggs";
-            mEmail = "JoeBloggs@outlook.com";
-            mActive = true;
-            mCreateDate = Convert.ToDateTime("13/01/1999");
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@customer_id", customer_id);
+            DB.Execute("sproc_tblCustomers_FilterByCustomerID");
+
+            if (DB.Count == 1)
+            {
+            mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["customer_id"]);
+            mFirstName = Convert.ToString(DB.DataTable.Rows[0]["first_name"]);
+            mLastName = Convert.ToString(DB.DataTable.Rows[0]["last_name"]);
+            mEmail = Convert.ToString(DB.DataTable.Rows[0]["email"]);
+            mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["active"]);
+            mCreateDate = Convert.ToDateTime(DB.DataTable.Rows[0]["create_date"]);
             return true;
+            }
+            
+            else
+            {
+                return false;
+            }
         }
     }
 }
