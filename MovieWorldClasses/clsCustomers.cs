@@ -73,7 +73,7 @@ namespace MovieWorldClasses
             }
         }
 
-        public bool Find(int customerNum)
+        public bool Find(int customer_id)
         {
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@customer_id", customer_id);
