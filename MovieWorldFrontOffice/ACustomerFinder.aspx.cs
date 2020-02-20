@@ -26,5 +26,22 @@ public partial class ACustomer : System.Web.UI.Page
         Response.Redirect("CustomerViewer.aspx");
     }
 
-   
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        clsCustomers ACustomer = new clsCustomers();
+
+        Int32 customer_id;
+        Boolean found = false;
+        customer_id = Convert.ToInt32(txtCustomer_ID.Text);
+        found = ACustomer.Find(customer_id);
+
+        if (found == true)
+        {
+            txtFirstName.Text = ACustomer.first_name;
+            txtLastName.Text = ACustomer.last_name;
+            txtEmail.Text = ACustomer.email;
+            activeCheck.Checked = ACustomer.active;
+            txtCreateDate.Text = ACustomer.create_date.ToString();
+        }
+    }
 }
