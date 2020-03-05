@@ -95,5 +95,16 @@ namespace MovieWorldClasses
                 return false;
             }
         }
+
+        public string Valid(string firstName, string lastName, string email, DateTime createDate)
+        {
+            if (firstName != mFirstName || lastName != mLastName || email != mEmail || createDate != mCreateDate)
+            {
+                return "Error";
+            }else
+            {
+                return "";
+            }
+        }
     }
 }
