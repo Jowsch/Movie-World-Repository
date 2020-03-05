@@ -451,5 +451,117 @@ namespace MovieWorld_Testing
             Assert.AreNotEqual(Error, "");
         }
 
+        [TestMethod]
+        public void emailMinLessOne()
+        {
+            clsCustomers ACustomer = new clsCustomers();
+
+            String Error = "";
+
+            string email = "";
+
+            Error = ACustomer.Valid(firstName, lastName, email, createDate);
+
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void emailMaxLessOne()
+        {
+            clsCustomers ACustomer = new clsCustomers();
+
+            String Error = "";
+
+            string email = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+
+            Error = ACustomer.Valid(firstName, lastName, email, createDate);
+
+            Assert.AreNotEqual(Error, "");
+        }
+
+        public void emailMax()
+        {
+            clsCustomers ACustomer = new clsCustomers();
+
+            String Error = "";
+
+            string email = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+
+            Error = ACustomer.Valid(firstName, lastName, email, createDate);
+
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void emailMid()
+        {
+            clsCustomers ACustomer = new clsCustomers();
+
+            String Error = "";
+
+            string email = "aaaaaaaaaaaaaaaaaaaaaaaaa";
+
+            Error = ACustomer.Valid(firstName, lastName, email, createDate);
+
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void emailMaxPlusOne()
+        {
+            clsCustomers ACustomer = new clsCustomers();
+
+            String Error = "";
+
+            string email = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+
+            Error = ACustomer.Valid(firstName, lastName, email, createDate);
+
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void emailExtremeMax()
+        {
+            clsCustomers ACustomer = new clsCustomers();
+
+            String Error = "";
+
+            string email = "";
+
+            email = email.PadRight(500, 'a');
+
+            Error = ACustomer.Valid(firstName, lastName, email, createDate);
+
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void emailCorrectFormat()
+        {
+            clsCustomers ACustomer = new clsCustomers();
+            String Error = "";
+            string email = "";
+            email = "Testing@hotmail.co.uk";
+
+            Error = ACustomer.Valid(firstName, lastName, email, createDate);
+
+            Assert.AreEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void emailIncorrectFormat()
+        {
+            clsCustomers ACustomer = new clsCustomers();
+            String Error = "";
+            string email = "";
+            email = "Testing wrong email";
+
+            Error = ACustomer.Valid(firstName, lastName, email, createDate);
+
+            Assert.AreNotEqual(Error, "");
+
+        }
     }
 }
