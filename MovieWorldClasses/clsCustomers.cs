@@ -96,15 +96,58 @@ namespace MovieWorldClasses
             }
         }
 
-        public string Valid(string firstName, string lastName, string email, DateTime createDate)
+        public string Valid(string firstName, string lastName, string email, string createDate)
         {
-            if (firstName != mFirstName || lastName != mLastName || email != mEmail || createDate != mCreateDate)
+            String Error = "";
+            DateTime DateTemp;
+
+            if (firstName.Length == 0)
             {
-                return "Error";
-            }else
-            {
-                return "";
+                //record the error
+                Error = Error + "The first name may not be blank : ";
             }
+          
+            if (firstName.Length > 50)
+            {
+              
+                Error = Error + "The first name must be less than 50 characters : ";
+            }
+            try
+            {
+              
+                DateTemp = Convert.ToDateTime(createDate);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                   
+                    Error = Error + "The date cannot be in the past : ";
+                }
+
+                if (DateTemp > DateTime.Now.Date)
+                { 
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "The date was not a valid date : ";
+            }
+            if (lastName.Length == 0)
+            {
+                Error = Error + "Your last name may not be blank : ";
+            }
+            if (lastName.Length > 50)
+            {
+                Error = Error + "your last name must be less than 50 characters : ";
+            }
+            if (email.Length == 0)
+            {
+                Error = Error + "The email may not be blank : ";
+            }
+            if (email.Length > 50)
+            {
+                Error = Error + "The email must be less than 50 characters : ";
+            }
+            return Error;
         }
     }
 }
