@@ -1,16 +1,18 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MovieWorldClasses;
 
 namespace MovieWorld_Testing
 {
     [TestClass]
-    public class UnitTest2
+    public class tstOrder
     {
         [TestMethod]
         public void InstanceOK()
         {
-            clsFilm AFilm = new clsFilm();
-            Assert.IsNotNull(AFilm);
+
+            clsOrder Anorder = new clsOrder();
+            Assert.IsNotNull(Anorder);
         }
     }
 }
