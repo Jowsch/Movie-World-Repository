@@ -147,6 +147,10 @@ namespace MovieWorldClasses
             {
                 Error = Error + "The email must be less than 50 characters : ";
             }
+            if (!email.Contains("@"))
+            {
+                Error = Error + "Email isnt in correct format 'doesnt contain @': ";
+            }
             return Error;
         }
     }
