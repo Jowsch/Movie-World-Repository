@@ -36,7 +36,7 @@ namespace MovieWorld_Testing
         public void CustomerIdPropertyOK()
         {
             clsOrder Anorder = new clsOrder();
-            string TestData = "Joe";
+            int TestData = 1;
 
             Anorder.Customer_Id = TestData;
             Assert.AreEqual(Anorder.Customer_Id, TestData);

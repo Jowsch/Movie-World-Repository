@@ -13,7 +13,7 @@ namespace MovieWorldClasses
 
         public int Order_id { get; set; }
         public DateTime create_date { get; set; }
-        public string Customer_Id { get; set; }
+        public int Customer_Id { get; set; }
     }
       
     }
