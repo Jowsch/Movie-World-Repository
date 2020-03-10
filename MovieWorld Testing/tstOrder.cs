@@ -15,12 +15,12 @@ namespace MovieWorld_Testing
             Assert.IsNotNull(Anorder);
         }
         [TestMethod]
-        public void OrderIdPropertyOk()
+        public void OrderNoPropertyOk()
         {
             clsOrder Anorder = new clsOrder();
             int TestData = 1;
 
-            Anorder.Order_id = TestData;
+            Anorder.OrderNo = TestData;
             Assert.AreEqual(Anorder.Order_id, TestData);
         }
         [TestMethod]
@@ -40,6 +40,34 @@ namespace MovieWorld_Testing
 
             Anorder.Customer_Id = TestData;
             Assert.AreEqual(Anorder.Customer_Id, TestData);
+
+        }
+        [TestMethod]
+        public void TotalCostPropertyOK()
+        {
+            clsOrder AnOrder = new clsOrder();
+            decimal TestData = 5.50;
+
+            AnOrder.TotalCost = TestData;
+            Assert.AreEqual(ACustomer.TotalCost, TestData);
+        }
+        [TestMethod]
+        public void StaffIdPropertyOK()
+        {
+            clsOrder AnOrder = new clsOrder();
+            int TestData = 1;
+
+            AnOrder.Staff_Id = TestData;
+            Assert.AreEqual(ACustomer.Staff_Id, TestData);
+        }
+        [TestMethod]
+        public void AvailableSeatsPropertyOK()
+        {
+            clsOrder AnOrder = new clsOrder();
+            bool TestData = true;
+
+            AnOrder.AvailableSeats = TestData;
+            Assert.AreEqual(ACustomer.AvailableSeats, TestData);
 
         }
     }
