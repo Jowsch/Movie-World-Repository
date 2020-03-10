@@ -70,5 +70,17 @@ namespace MovieWorld_Testing
             Assert.AreEqual(ACustomer.AvailableSeats, TestData);
 
         }
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsOrder AnOrder = new clsOrder();
+            Boolean Found = false;
+
+            int OrderNo = 1;
+
+            Found = AnOrder.Find(OrderNum);
+            Assert.IsTrue(Found);
+        }
+
     }
 }
