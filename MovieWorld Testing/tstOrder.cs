@@ -81,6 +81,96 @@ namespace MovieWorld_Testing
             Found = AnOrder.Find(OrderNum);
             Assert.IsTrue(Found);
         }
+        [TestMethod]
+        public void TestOrderNoFound()
+        {
+            clsOrder AnOrder = new clsOrder();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderNo = 1;
+            Found = AnOrder.Find(OrderNo);
+            if (AnOrder.OrderNo != 1)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void CustomerIdFound()
+        {
+            clsOrder AnOrder = new clsOrder();
+
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderNo = 1;
+            Found = AnOrder.Find(OrderNo);
+            if (AnOrder.Customer_Id != 1)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void DateOfOrderFound()
+        {
+
+            clsOrder AnOrder = new clsOrder();
+            Boolean Found = false
+            Boolean OK = true;
+            Int32 OrderNo = 1;
+            Found = AnOrder.Find(OrderNo);
+            if (AnOrder.DateOfOrder != Convert.ToDateTime("05/05/2020"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void Staff_IdFound()
+        {
+            clsOrder AnOrder = new clsOrder();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderNo = 1;
+            Found = AnOrder.Find(OrderNo);
+            if (AnOrder.StaffId != 1)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+       
+        public void TestTotalCostFound()
+        {
+            clsOrder AnOrder = new clsOrder();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderNo = 1;
+            Found = AnOrder.Find(OrderNo);
+            if (AnOrder.TotalCost != 1)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void AvailableSeatsFound()
+        {
+            clsOrder AnOrder = new clsOrder();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderNo = 1;
+            Found = AnOrder.Find(OrderNo);
+            if (AnOrder.AvailableSeats != true)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
 
     }
 }
