@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 namespace Class_Library
 {
-    public class clsOrder
+    public class ClsOrder
     {
-        private Boolean mAVailableSeats;
+        private Boolean mAvailableSeats;
         public bool AvailableSeats
         {
             get
@@ -46,7 +46,7 @@ namespace Class_Library
             }
         }
         private Int32 mCustomer_Id;
-            public int CUstomerId
+        public int CustomerId
         {
             get
             {
@@ -57,7 +57,7 @@ namespace Class_Library
                 mCustomer_Id = value;
             }
         }
-        private int mStaff_Id;
+        private Int32 mStaff_Id;
 
         public int Staff_Id
         {
@@ -74,7 +74,7 @@ namespace Class_Library
         }
 
         private decimal mTotalCost;
-        private bool mAvailableSeats;
+        
 
         public decimal TotalCost
         {
@@ -95,13 +95,13 @@ namespace Class_Library
         {
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@OrderNo", OrderNo);
-            DB.Execute("sproc_tblAddress_FilterByOrderNo");       
+            DB.Execute("sproc_tblAddress_FilterByOrderNo");
 
 
-            if(DB.Count == 1)
+            if (DB.Count == 1)
 
 
-    {
+            {
                 mOrderNo = Convert.ToInt32(DB.DataTable.Rows[0]["OrderNo"]);
                 mCustomer_Id = Convert.ToInt32(DB.DataTable.Rows[0]["Customer_Id"]);
                 mStaff_Id = Convert.ToInt32(DB.DataTable.Rows[0]["Staff_Id"]);
@@ -111,4 +111,48 @@ namespace Class_Library
                 return true;
             }
         }
+        public string Valid(string OrderNo, string Customer_Id, string Staff_Id, string TotalCost, string AvailableSeats, string DateOfOrder)
+        {
+            String Error = "";
+            DateTime DateTemp;
+            if(OrderNo.Length == 0)
+{
+                Error = Error + "The order No may not be blank: ";
+            }
+            if(OrderNo.Length > 6)
+{
+                Error = Error + "The order No must be less than 6 characters: ";
+            }
+            DateTemp = Convert.ToDateTime(DateOfOrder);
+            if (DateTemp < DateTime.Now.Date)
+            {
+                Error = Error + "The date cannot be in the past : ";
+            }
+            if (DateTemp > DateTime.Now.Date)
+            {
+                Error = Error + "The date cannot be in the future : ";
+            }
+            if (this.Staff_Id == 0) 
+{
+                Error = Error + "The Staff ID may not be blank: ";
+            }
+            if(Staff_Id.Length > 6)
+{
+                Error = Error + "The Staff Id must be less than 6 characters: ";
+            }
+
+            if(CustomerId == 0)
+{
+                Error = Error + "The Staff ID may not be blank: ";
+            }
+            if(Customer_Id.Length > 6)
+{
+                Error = Error + "The Customer Id must be less than 6 characters: ";
+            }
+
+            return Error;
+        }
+
     }
+}
+
