@@ -185,7 +185,7 @@ namespace MovieWorld_Testing
             clsOrder AnOrder = new clsOrder();
             String Error = "";
             String OrderNo = "";
-            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder):
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
     Assert.AreEqual(Error, "");
         }
 
@@ -346,8 +346,8 @@ namespace MovieWorld_Testing
             clsOrder AnOrder = new clsOrder();
             String Error = "";
             String Staff_Id = "";
-            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder):
-    Assert.AreEqual(Error, "");
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -422,7 +422,7 @@ namespace MovieWorld_Testing
             clsOrder AnOrder = new clsOrder();
             String Error = "";
             String Customer_Id = "";
-            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder):
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
     Assert.AreEqual(Error, "");
         }
 
