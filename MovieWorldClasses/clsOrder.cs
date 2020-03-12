@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 namespace Class_Library
 {
-    public class ClsOrder
+    public class clsOrder
     {
         private Boolean mAvailableSeats;
         public bool AvailableSeats

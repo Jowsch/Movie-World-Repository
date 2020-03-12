@@ -1,4 +1,5 @@
 ﻿using System;
+using Class_Library;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MovieWorldClasses;
 
@@ -76,7 +77,7 @@ namespace MovieWorld_Testing
             clsOrder AnOrder = new clsOrder();
             Boolean Found = false;
 
-            int OrderNo = 1;
+            Int32 OrderNo = 1;
 
             Found = AnOrder.Find(OrderNum);
             Assert.IsTrue(Found);
@@ -242,7 +243,7 @@ namespace MovieWorld_Testing
             clsOrder AnOrder = new clsOrder();
             String Error = "";
             string OrderNo = "aaaaaaa";
-            OrderNo = OrderNo.padRight(500, 'a');
+            OrderNo = OrderNo.PadRight(500, 'a');
             Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
             Assert.AreEqual(Error, "");
         }
@@ -324,9 +325,9 @@ namespace MovieWorld_Testing
             Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
              Assert.AreNotEqual(Error, "");
         }
-        public Void DateOfOrderInvalidData()
+        public void DateOfOrderInvalidData()
         {
-            ClsOrder AnOrder = new ClsOrder();
+            clsOrder AnOrder = new clsOrder();
             String Error = "";
             String DateOfOrder = "This is not a date";
             Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
@@ -335,7 +336,7 @@ namespace MovieWorld_Testing
 
         public void Staff_IdMinLessOne()
         {
-            ClsOrder Anorder = new clsOrder();
+            clsOrder AnOrder = new clsOrder();
             String Error = "";
             String Staff_Id = "";
             Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
@@ -411,7 +412,7 @@ namespace MovieWorld_Testing
 
         public void Customer_IdMinLessOne()
         {
-            ClsOrder Anorder = new clsOrder();
+            clsOrder AnOrder = new clsOrder();
             String Error = "";
             String Customer_Id = "";
             Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
