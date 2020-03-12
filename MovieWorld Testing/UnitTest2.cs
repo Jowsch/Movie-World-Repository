@@ -9,7 +9,7 @@ namespace MovieWorld_Testing
         [TestMethod]
         public void InstanceOK()
         {
-            clsFilm AFilm = new clsFilm();
+            tstFilm AFilm = new tstFilm();
             Assert.IsNotNull(AFilm);
         }
     }
