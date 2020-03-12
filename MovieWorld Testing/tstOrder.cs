@@ -36,11 +36,11 @@ namespace MovieWorld_Testing
         [TestMethod]
         public void CustomerIdPropertyOK()
         {
-            clsOrder Anorder = new clsOrder();
-            int TestData = 1;
+            clsOrder AnOrder = new clsOrder();
+            string TestData = "abc";
 
-            Anorder.Customer_Id = TestData;
-            Assert.AreEqual(Anorder.Customer_Id, TestData);
+            AnOrder.Customer_Id = TestData;
+            Assert.AreEqual(AnOrder.Customer_Id, TestData);
 
         }
         [TestMethod]
@@ -72,7 +72,8 @@ namespace MovieWorld_Testing
 
         }
     }
-        //        [TestMethod]
+}
+            [TestMethod]
         //       public void FindMethodOK()
         //       {
         //      clsOrder AnOrder = new clsOrder();
