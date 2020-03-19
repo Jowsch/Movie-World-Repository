@@ -30,14 +30,14 @@ namespace MovieWorld_Testing
             clsOrder AnOrder = new clsOrder();
             DateTime TestData = DateTime.Now.Date;
 
-            AnOrder.create_date = TestData;
-            Assert.AreEqual(AnOrder.create_date, TestData);
+            AnOrder.DateOfOrder = TestData;
+            Assert.AreEqual(AnOrder.DateOfOrder, TestData);
         }
         [TestMethod]
         public void CustomerIdPropertyOK()
         {
             clsOrder AnOrder = new clsOrder();
-            string TestData = "abc";
+            string TestData = "ubay";
 
             AnOrder.Customer_Id = TestData;
             Assert.AreEqual(AnOrder.Customer_Id, TestData);
@@ -73,7 +73,7 @@ namespace MovieWorld_Testing
         }
     }
 }
-            [TestMethod]
+//            [TestMethod]
         //       public void FindMethodOK()
         //       {
         //      clsOrder AnOrder = new clsOrder();

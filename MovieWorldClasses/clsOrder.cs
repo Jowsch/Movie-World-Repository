@@ -8,7 +8,7 @@ namespace Class_Library
     public class clsOrder
     {
         public int OrderNo { get; set; }
-        public DateTime create_date { get; set; }
+        public DateTime DateOfOrder { get; set; }
         public string Customer_Id { get; set; }
         public decimal TotalCost { get; set; }
         public int Staff_Id { get; set; }
