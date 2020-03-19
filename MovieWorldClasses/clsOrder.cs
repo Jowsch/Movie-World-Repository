@@ -7,122 +7,126 @@ namespace Class_Library
 {
     public class clsOrder
     {
-        public int OrderNo { get; set; }
-        public DateTime DateOfOrder { get; set; }
-        public string Customer_Id { get; set; }
-        public decimal TotalCost { get; set; }
-        public int Staff_Id { get; set; }
-        public bool AvailableSeats { get; set; }
+
+        public bool Find(int OrderNo)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@OrderNo", OrderNo);
+            DB.Execute("sproc_Tableorder_FilterByOrderNo");
+
+
+            if (DB.Count == 1)
+
+
+            {
+                mOrderNo = Convert.ToString(DB.DataTable.Rows[0]["OrderNo"]);
+                mCustomer_Id = Convert.ToString(DB.DataTable.Rows[0]["CustomerId"]);
+                mStaff_Id = Convert.ToString(DB.DataTable.Rows[0]["StaffId"]);
+                mTotalCost = Convert.ToString(DB.DataTable.Rows[0]["TotalCost"]);
+                mAvailableSeats = Convert.ToBoolean(DB.DataTable.Rows[0]["AvailableSeats"]);
+                mDateOfOrder = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfOrder"]);
+                return true;
+            }
+            else
+            {
+                return false;
+
+
+            }
+        }
+
+        private Boolean mAvailableSeats;
+        public bool AvailableSeats
+        {
+            get
+            {
+                return mAvailableSeats;
+            }
+            set
+            {
+
+                mAvailableSeats = value;
+            }
+        }
+        private DateTime mDateOfOrder;
+        public DateTime DateOfOrder
+        {
+            get
+            {
+                return mDateOfOrder;
+            }
+            set
+            {
+                mDateOfOrder = value;
+            }
+        }
+        private string mOrderNo;
+        public string OrderNo
+        {
+            get
+            {
+
+                return mOrderNo;
+            }
+            set
+            {
+                mOrderNo = value;
+            }
+        }
+        private string mCustomer_Id;
+        public string Customer_Id
+        {
+            get
+            {
+                return mCustomer_Id;
+            }
+            set
+            {
+                mCustomer_Id = value;
+            }
+        }
+
+
+        private string mStaff_Id;
+
+        public string Staff_Id
+        {
+            get
+            {
+
+                return mStaff_Id;
+            }
+            set
+            {
+                mStaff_Id = value;
+
+            }
+        }
+
+
+
+
+        private string mTotalCost;
+
+
+        public string TotalCost
+        {
+            get
+            {
+                return mTotalCost;
+            }
+            set
+            {
+                mTotalCost = value;
+            }
+        }
+
+
+        
     }
 }
 
-
-
-
-        //      private Boolean mAvailableSeats;
-        //    public bool AvailableSeats
-        //     {
-        //          get
-        //          {
-        //            return mAvailableSeats;
-        //       }
-        //       set
-        //     {
-
-//          mAvailableSeats = value;
-//       }
-//    }
-//   private DateTime mDateOfOrder;
-//   public DateTime DateOfOrder
-//    {
-//        get
-//        {
-//           return mDateOfOrder;
-//       }
-//       set
-//       {
-//             mDateOfOrder = value;
-//         }
-//     }
-//    private Int32 mOrderNo;
-//     public int OrderNo
-//     {
-//         get
-//         {
-
-//            return mOrderNo;
-//         }
-//        set
-//        {
-//           mOrderNo = value;
-//         }
-//     }
-//    private Int32 mCustomer_Id;
-//     public int CustomerId
-//    {
-//        get
-//         {
-//            return mCustomer_Id;
-//        }
-//       set
-//       {
-//          mCustomer_Id = value;
-//      }
-
-//     private Int32 mStaff_Id;
-
-//    public int Staff_Id
-//   {
-//        get
-//     {
-//         //return private data
-//        return mStaff_Id;
-//     }
-//     set
-//        {
-//           //set the private data
-//            mStaff_Id = value;
-//       }
-//   }
-//
-//    private decimal mTotalCost;
-
-
-//   public decimal TotalCost
-//    {
-//      get
-//      {
-//         return mTotalCost;
-//    }
-//      set
-//      {
-//         mTotalCost = value;
-//       }
-//    }
-//
-//     public DateTime create_date { get; set; }
-//     public int Customer_Id { get; set; }
-
-//     public bool Find(int OrderNo)
-//     {
-//         clsDataConnection DB = new clsDataConnection();
-//        DB.AddParameter("@OrderNo", OrderNo);
-//        DB.Execute("sproc_tblAddress_FilterByOrderNo");
-
-
-//         if (DB.Count == 1)
-
-
-//        {
-//            mOrderNo = Convert.ToInt32(DB.DataTable.Rows[0]["OrderNo"]);
-//             mCustomer_Id = Convert.ToInt32(DB.DataTable.Rows[0]["Customer_Id"]);
-//            mStaff_Id = Convert.ToInt32(DB.DataTable.Rows[0]["Staff_Id"]);
-//           mTotalCost = Convert.ToDecimal(DB.DataTable.Rows[0]["TotalCost"]);
-//           mAvailableSeats = Convert.ToBoolean(DB.DataTable.Rows[0]["AvailableSeats"]);
-//        mDateOfOrder = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfOrder"]);
-//         return true;
-//       }
-//   }
+    
 //   public string Valid(string OrderNo, string Customer_Id, string Staff_Id, string TotalCost, string AvailableSeats, string DateOfOrder)
 //    {
 //        String Error = "";
