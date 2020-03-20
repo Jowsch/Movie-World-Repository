@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="height: 257px">
+        <div style="height: 307px">
             Customer ID:
             <asp:TextBox ID="txtCustomer_ID" runat="server"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;
@@ -27,12 +27,11 @@
             <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
             <br />
             <br />
-            Active:
-            <asp:CheckBox ID="activeCheck" runat="server" />
-            <br />
-            <br />
             create Date:
             <asp:TextBox ID="txtCreateDate" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Label ID="lblError" runat="server" Text="Label"></asp:Label>
             <br />
             <br />
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Ok" />
