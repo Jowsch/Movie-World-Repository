@@ -537,20 +537,6 @@ namespace MovieWorld_Testing
         }
 
         [TestMethod]
-        public void emailCorrectFormat()
-        {
-            clsCustomers ACustomer = new clsCustomers();
-            String Error = "";
-            string email = "";
-            email = "Testing@hotmail.co.uk";
-
-            Error = ACustomer.Valid(firstName, lastName, email, createDate);
-
-            Assert.AreEqual(Error, "");
-
-        }
-
-        [TestMethod]
         public void emailIncorrectFormat()
         {
             clsCustomers ACustomer = new clsCustomers();
