@@ -23,7 +23,6 @@ public partial class OrderFinder : System.Web.UI.Page
 
         if (found == true)
         {
-            txtOrderNo.Text = AnOrder.OrderNo;
             txtDateOfOrder.Text = AnOrder.DateOfOrder.ToString();
             txtCustomerId.Text = AnOrder.Customer_Id;
             txtStaffId.Text = AnOrder.Staff_Id;
@@ -36,7 +35,6 @@ public partial class OrderFinder : System.Web.UI.Page
     protected void ButtonOk_Click(object sender, EventArgs e)
     {
         clsOrder AnOrder = new clsOrder();
-        AnOrder.OrderNo = txtOrderNo.Text;
         AnOrder.DateOfOrder = Convert.ToDateTime(txtDateOfOrder.Text);
         AnOrder.Customer_Id = txtCustomerId.Text;
         AnOrder.TotalCost = txtTotalCost.Text;
