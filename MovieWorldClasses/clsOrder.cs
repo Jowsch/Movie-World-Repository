@@ -8,33 +8,7 @@ namespace Class_Library
     public class clsOrder
     {
 
-        public bool Find(int OrderNo)
-        {
-            clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@OrderNo", OrderNo);
-            DB.Execute("sproc_Tableorder_FilterByOrderNo");
-
-
-            if (DB.Count == 1)
-
-
-            {
-                mOrderNo = Convert.ToString(DB.DataTable.Rows[0]["OrderNo"]);
-                mCustomer_Id = Convert.ToString(DB.DataTable.Rows[0]["CustomerId"]);
-                mStaff_Id = Convert.ToString(DB.DataTable.Rows[0]["StaffId"]);
-                mTotalCost = Convert.ToString(DB.DataTable.Rows[0]["TotalCost"]);
-                mAvailableSeats = Convert.ToBoolean(DB.DataTable.Rows[0]["AvailableSeats"]);
-                mDateOfOrder = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfOrder"]);
-                return true;
-            }
-            else
-            {
-                return false;
-
-
-            }
-        }
-
+        
         private Boolean mAvailableSeats;
         public bool AvailableSeats
         {
@@ -122,7 +96,35 @@ namespace Class_Library
         }
 
 
-        
+        public bool Find(int OrderNo)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@OrderNo", OrderNo);
+            DB.Execute("sproc_Tableorder_FilterByOrderNo");
+
+
+            if (DB.Count == 1)
+
+
+            {
+                mOrderNo = Convert.ToString(DB.DataTable.Rows[0]["OrderNo"]);
+                mCustomer_Id = Convert.ToString(DB.DataTable.Rows[0]["CustomerId"]);
+                mStaff_Id = Convert.ToString(DB.DataTable.Rows[0]["StaffId"]);
+                mTotalCost = Convert.ToString(DB.DataTable.Rows[0]["TotalCost"]);
+                mAvailableSeats = Convert.ToBoolean(DB.DataTable.Rows[0]["AvailableSeats"]);
+                mDateOfOrder = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfOrder"]);
+                return true;
+            }
+            else
+            {
+                return false;
+
+
+            }
+        }
+
+
+
     }
 }
 

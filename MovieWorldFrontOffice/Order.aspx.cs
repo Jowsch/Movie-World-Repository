@@ -10,9 +10,7 @@ public partial class Order : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        clsOrder AnOrder = new clsOrder();
-        AnOrder = (clsOrder)Session["AnOrder"];
-        Response.Write(AnOrder.OrderNo);
+        
     }
 
     protected void ButtonOk_Click(object sender, EventArgs e)
