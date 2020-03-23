@@ -8,6 +8,18 @@ namespace MovieWorld_Testing
     [TestClass]
     public class TstOrder
     {
+        string OrderNo = "1";
+        string DateOfOrder = DateTime.Now.ToString();
+        string Customer_Id = "Ubaydullah";
+        string Staff_Id = "1";
+        string TotalCost = "5.50";
+        string AvailableSeats = "True";
+
+
+
+
+
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -105,7 +117,7 @@ namespace MovieWorld_Testing
             Int32 OrderNo = 1;
             Found = AnOrder.Find(OrderNo);
             if (AnOrder.Customer_Id != ("ubay"))
-                
+
             {
                 OK = false;
             }
@@ -155,7 +167,7 @@ namespace MovieWorld_Testing
             }
             Assert.IsTrue(OK);
         }
-      
+
         [TestMethod]
         public void AvailableSeatsFound()
         {
@@ -170,173 +182,178 @@ namespace MovieWorld_Testing
             }
             Assert.IsTrue(OK);
         }
+        [TestMethod]
+        public void ValidMethodOk()
+        {
+            clsOrder AnOrder = new clsOrder();
+            string Error = "";
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void OrderNoMinLessOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string OrderNo = "";
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void OrderNoMin()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            String OrderNo = "1";
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void OrderNoMinPlusOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string OrderNo = "12";
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderNoMaxLessOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string OrderNo = "1111111111111111111111111111111111111111111111111";
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void OrderNoMax()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string OrderNo = "11111111111111111111111111111111111111111111111111";
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderNoMid()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string OrderNo = "1111111111111111111111111";
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void OrderNoMaxPlusOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string OrderNo = "1111111111111111111111111111111111111111111111111111";
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void OrderNoExtremeMax()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string OrderNo = "1111111111111111111111111111111111111111111111111111";
+            OrderNo = OrderNo.PadRight(500, '1');
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
+            Assert.AreNotEqual(Error, "");
+        }
+    
+        [TestMethod]
+        public void DateOfOrderExtremeMin()
+        {
+            clsOrder AnOrder = new clsOrder();
+            string Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-100);
+            string DateOfOrder = TestDate.ToString();
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateOfOrderMinLessOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(-1);
+            string DateOfOrder = TestDate.ToString();
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateOfOrderMin()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            string DateOfOrder = TestDate.ToString();
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
+            Assert.AreEqual(Error, "");
+
+        }
+         [TestMethod]
+        public void DateOfOrderMinPlusOne()
+         {
+        clsOrder AnOrder = new clsOrder();
+        String Error = "";
+        DateTime TestDate;
+        TestDate = DateTime.Now.Date;
+        TestDate = TestDate.AddDays(1);
+        string DateOfOrder = TestDate.ToString();
+        Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
+        Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateOfOrderExtremeMax()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(100);
+            string DateOfOrder = TestDate.ToString();
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
+            Assert.AreNotEqual(Error, "");
+        }
+       [TestMethod]
+     public void DateOfOrderInvalidData()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            String DateOfOrder = "This is not a date";
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
+            Assert.AreNotEqual(Error, "");
+        }
+       
+
+
+
+
     }
+
+
+
+
+
 }
+
         
 
 
 
-//[TestMethod]
-//public void OrderNoMinLessOne()
-//{
-//ClsOrder Anorder = new clsOrder();
-//String Error = "";
-//String OrderNo = "";
-//Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
-//Assert.AreNotEqual(Error, "");
-//}
-//public void OrderNoMin()
-//{
-//clsOrder AnOrder = new clsOrder();
-//String Error = "";
-//String OrderNo = "";
-//Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
-//Assert.AreEqual(Error, "");
-//}
 
-//[TestMethod]
-//public void OrderNoMinPlusOne()
-//{
-//    clsOrder AnOrder = new clsOrder();
-//String Error = "";
-//string OrderNo = "aa";
-//Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
-//Assert.AreEqual(Error, "");
-//}
-
-//        [TestMethod]
-//public void OrderNoMaxLessOne()
-//{
-//clsOrder AnOrder = new clsOrder();
-//String Error = "";
-//string OrderNo = "aaaaa";
-//Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
-//Assert.AreEqual(Error, "");
-//}
-//[TestMethod]
-//public void OrderNoMax()
-//       {
-//           clsOrder AnOrder = new clsOrder();
-//String Error = "";
-//string OrderNo = "aaaaaa";
-//Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
-//Assert.AreEqual(Error, "");
-//}
-
-//[TestMethod]
-//public void OrderNoMid()
-//{
-//clsOrder AnOrder = new clsOrder();
-//String Error = "";
-//string OrderNo = "aaa";
-//Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
-//Assert.AreEqual(Error, "");
-//}
-//[TestMethod]
-//public void OrderNoMaxPlusOne()
-//{
-//clsOrder AnOrder = new clsOrder();
-//String Error = "";
-//string OrderNo = "aaaaaaa";
-//Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
-//Assert.AreEqual(Error, "");
-//}
-//[TestMethod]
-//public void OrderNoExtremeMax()
-//{
-//clsOrder AnOrder = new clsOrder();
-//String Error = "";
-//string OrderNo = "aaaaaaa";
-//OrderNo = OrderNo.PadRight(500, 'a');
-//Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
-//Assert.AreEqual(Error, "");
-//}
-
-//[TestMethod]
-//public void DateOfOrderExtremeMax()
-//{
-//clsOrder AnOrder = new clsOrder();
-//String Error = "";
-//DateTime TestDate;
-//TestDate = DateTime.Now.Date;
-//TestDate.AddYears(-100);
-//String DateOfOrder = tesrtDate.toString();
-//Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
-//Assert.AreNotEqual(Error, "");
-//}
-
-//[TestMethod]
-//public void DateOfOrderExtremeMin()
-// {
-//clsOrder AnOrder = new clsOrder();
-//String Error = "";
-//DateTime TestDate;
-//TestDate = DateTime.Now.Date;
-//TestDate = TestDate.AddYears(-100);
-//string DateAdded = TestDate.ToString();
-//Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
-//Assert.AreNotEqual(Error, "");
-//}
-
-//       [TestMethod]
-//public void DateOfOrderMinLessOne()
-// {
-//clsOrder AnOrder = new clsOrder();
-//String Error = "";
-//DateTime TestDate;
-//TestDate = DateTime.Now.Date;
-//TestDate = TestDate.AddDays(-1);
-//string DateOfOrder = TestDate.ToString();
-//Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
-//Assert.AreNotEqual(Error, "");
-//}
-
-//[TestMethod]
-//public void DateOfOrderMin()
-//        {
-
-//        clsOrder AnOrder = new clsOrder();
-//String Error = "";
-//DateTime TestDate;
-//TestDate = DateTime.Now.Date;
-//string DateOfOrder = TestDate.ToString();
-//Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
-//Assert.AreEqual(Error, "");
-//}
-// [TestMethod]
-//public void DateOfOrderMinPlusOne()
-// {
-//clsOrder AnOrder = new clsOrder();
-//String Error = "";
-//DateTime TestDate;
-//TestDate = DateTime.Now.Date;
-//TestDate = TestDate.AddDays(1);
-//string DateOfOrder = TestDate.ToString();
-//Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
-//Assert.AreNotEqual(Error, "");
-//}
-
-//        [TestMethod]
-//public void DateOfOrderExtremeMax()
-//{
-//clsOrder AnOrder = new clsOrder();
-//String Error = "";
-//DateTime TestDate;
-//TestDate = DateTime.Now.Date;
-//TestDate = TestDate.AddYears(100);
-//string DateOfOrder = TestDate.ToString();
-
-//Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
-//Assert.AreNotEqual(Error, "");
-//}
-//public void DateOfOrderInvalidData()
-//{
-//clsOrder AnOrder = new clsOrder();
-// String Error = "";
-//String DateOfOrder = "This is not a date";
-//Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
-//Assert.AreNotEqual(Error, "");
-//}
 
 //        public void Staff_IdMinLessOne()
 //      {

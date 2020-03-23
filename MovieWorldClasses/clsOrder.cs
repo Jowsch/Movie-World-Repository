@@ -123,54 +123,46 @@ namespace Class_Library
             }
         }
 
+        public string Valid(string OrderNo, string customer_Id, string staff_Id, string totalCost, string availableSeats, string DateOfOrder)
+        {
+            String Error = "";
+            DateTime DateTemp;
+            if (OrderNo.Length == 0)
+            {
+                Error = Error + "The order No may not be blank: ";
+            }
+            if (OrderNo.Length > 50)
+            {
+                Error = Error + "The order No must be less than 50 characters: ";
+            }
+            try
+            {
+                DateTemp = Convert.ToDateTime(DateOfOrder);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the past: ";
+
+                }
+                if (DateTemp > DateTime.Now.Date)
+                {
+
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "The date was not a Valid Date: ";
+            }
 
 
+            return Error;
+            }
+            
+            
+    
+            }
+        
     }
-}
 
     
-//   public string Valid(string OrderNo, string Customer_Id, string Staff_Id, string TotalCost, string AvailableSeats, string DateOfOrder)
-//    {
-//        String Error = "";
-//        DateTime DateTemp;
-//       if(OrderNo.Length == 0)
-//{
-//               Error = Error + "The order No may not be blank: ";
-//           }
-//          if(OrderNo.Length > 6)
-//{
-//              Error = Error + "The order No must be less than 6 characters: ";
-//          }
-//          DateTemp = Convert.ToDateTime(DateOfOrder);
-//         if (DateTemp < DateTime.Now.Date)
-//         {
-//            Error = Error + "The date cannot be in the past : ";
-//        }
-//        if (DateTemp > DateTime.Now.Date)
-//      {
-//           Error = Error + "The date cannot be in the future : ";
-//       }
-//      if (this.Staff_Id == 0) 
-//{
-//            Error = Error + "The Staff ID may not be blank: ";
-//       }
-//       if(Staff_Id.Length > 6)
-//{
-//          Error = Error + "The Staff Id must be less than 6 characters: ";
-//     }
-
-//     if(CustomerId == 0)
-//{
-//         Error = Error + "The Staff ID may not be blank: ";
-//          }
-//         if(Customer_Id.Length > 6)
-//{
-//             Error = Error + "The Customer Id must be less than 6 characters: ";
-//         }
-
-//       return Error;
-//    }
-
-//  }
-//}
 
