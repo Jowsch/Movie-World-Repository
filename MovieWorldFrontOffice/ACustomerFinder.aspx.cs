@@ -16,14 +16,29 @@ public partial class ACustomer : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         clsCustomers ACustomer = new clsCustomers();
-        ACustomer.first_name = txtFirstName.Text;
-        ACustomer.last_name = txtLastName.Text;
-        ACustomer.email = txtEmail.Text;
-        ACustomer.active = activeCheck.Checked;
-        ACustomer.create_date = Convert.ToDateTime(txtCreateDate.Text);
+        string first_name = txtFirstName.Text;
+        string last_name = txtLastName.Text;
+        string email = txtEmail.Text;
+        string create_date = txtCreateDate.Text;
 
-        Session["ACustomer"] = ACustomer;
-        Response.Redirect("CustomerViewer.aspx");
+        string Error = "";
+        Error = ACustomer.Valid(first_name, last_name, email, create_date);
+        if(Error == "")
+        {
+            ACustomer.first_name = first_name;
+            ACustomer.last_name = last_name;
+            ACustomer.email = email;
+            ACustomer.create_date = Convert.ToDateTime(create_date);
+
+            Session["ACustomer"] = ACustomer;
+            Response.Redirect("CustomerViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
+
+        
     }
 
     protected void Button3_Click(object sender, EventArgs e)
@@ -40,7 +55,6 @@ public partial class ACustomer : System.Web.UI.Page
             txtFirstName.Text = ACustomer.first_name;
             txtLastName.Text = ACustomer.last_name;
             txtEmail.Text = ACustomer.email;
-            activeCheck.Checked = ACustomer.active;
             txtCreateDate.Text = ACustomer.create_date.ToString();
         }
     }
