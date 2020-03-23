@@ -123,7 +123,7 @@ namespace Class_Library
             }
         }
 
-        public string Valid(string OrderNo, string customer_Id, string staff_Id, string totalCost, string availableSeats, string DateOfOrder)
+        public string Valid(string OrderNo, string Customer_Id, string Staff_Id, string TotalCost, string AvailableSeats, string DateOfOrder)
         {
             String Error = "";
             DateTime DateTemp;

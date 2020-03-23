@@ -266,7 +266,7 @@ namespace MovieWorld_Testing
             Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
             Assert.AreNotEqual(Error, "");
         }
-    
+
         [TestMethod]
         public void DateOfOrderExtremeMin()
         {
@@ -303,17 +303,17 @@ namespace MovieWorld_Testing
             Assert.AreEqual(Error, "");
 
         }
-         [TestMethod]
+        [TestMethod]
         public void DateOfOrderMinPlusOne()
-         {
-        clsOrder AnOrder = new clsOrder();
-        String Error = "";
-        DateTime TestDate;
-        TestDate = DateTime.Now.Date;
-        TestDate = TestDate.AddDays(1);
-        string DateOfOrder = TestDate.ToString();
-        Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
-        Assert.AreNotEqual(Error, "");
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(1);
+            string DateOfOrder = TestDate.ToString();
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void DateOfOrderExtremeMax()
@@ -327,16 +327,96 @@ namespace MovieWorld_Testing
             Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
             Assert.AreNotEqual(Error, "");
         }
-       [TestMethod]
-     public void DateOfOrderInvalidData()
+        [TestMethod]
+        public void DateOfOrderInvalidData()
         {
             clsOrder AnOrder = new clsOrder();
             String Error = "";
-            String DateOfOrder = "This is not a date";
+            string DateOfOrder = "This is not a date";
             Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
             Assert.AreNotEqual(Error, "");
         }
-       
+        [TestMethod]
+
+        public void Staff_IdMinLessOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string Staff_Id = "";
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void Staff_IdMin()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string Staff_Id = "1";
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
+            Assert.AreEqual(Error, "");
+     }
+
+        [TestMethod]
+        public void Staff_IdMinPlusOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string Staff_Id = "aa";
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
+            Assert.AreEqual(Error, "");
+        }
+
+         [TestMethod]
+        public void Staff_IdMaxLessOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string Staff_Id = "1111111111111111111111111111111111111111111111111";
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void Staff_IdMax()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string Staff_Id = "11111111111111111111111111111111111111111111111111";
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void Staff_IdMid()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string OrderNo = "1111111111111111111111111";
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void Staff_IdMaxPlusOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string Staff_Id = "111111111111111111111111111111111111111111111111111";
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void Staff_IdExtremeMax()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string Staff_Id = "11111111111111111111111111111111111111111111111111";
+            Staff_Id = Staff_Id.PadRight(100, '1');
+            Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, AvailableSeats, DateOfOrder);
+            Assert.AreEqual(Error, "");
+        }
+
+
 
 
 
@@ -354,7 +434,7 @@ namespace MovieWorld_Testing
 
 
 
-
+//stmethod
 //        public void Staff_IdMinLessOne()
 //      {
 //clsOrder AnOrder = new clsOrder();
