@@ -121,7 +121,7 @@ namespace Class_Library
             }
         }
 
-        public string Valid(string OrderNo, string Customer_Id, string Staff_Id, string TotalCost, string AvailableSeats, string DateOfOrder)
+        public string Valid(string OrderNo, string Customer_Id, string Staff_Id, string TotalCost, string DateOfOrder)
         {
             String Error = "";
             DateTime DateTemp;
@@ -150,6 +150,22 @@ namespace Class_Library
             catch
             {
                 Error = Error + "The date was not a Valid Date: ";
+            }
+            if (Staff_Id.Length == 0)
+            {
+                Error = Error + "The Staff Id may not be blank: ";
+            }
+            if (Staff_Id.Length > 50)
+            {
+                Error = Error + "The Staff Id must not be more than 50 characters: ";
+            }
+            if (Customer_Id.Length == 0)
+            {
+                Error = Error + "The Customer Id may not be blank: ";
+            }
+            if (Customer_Id.Length > 50)
+            {
+                Error = Error + "The Customer Id must not be more than 50 characters: ";
             }
 
 
