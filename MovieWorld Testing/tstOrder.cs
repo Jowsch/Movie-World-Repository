@@ -86,10 +86,9 @@ namespace MovieWorld_Testing
         public void FindMethodOK()
         {
             clsOrder AnOrder = new clsOrder();
-            Boolean Found = false;
-            Int32 OrderNo = 1;
-            Found = AnOrder.Find(OrderNo);
-            Assert.IsTrue(Found);
+            string TestData = "1";
+            AnOrder.OrderNo = TestData;
+            Assert.AreEqual(AnOrder.OrderNo, TestData);
         }
         [TestMethod]
         public void TestOrderNoFound()
