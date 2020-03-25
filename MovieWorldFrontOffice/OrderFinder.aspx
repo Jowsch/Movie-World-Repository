@@ -34,6 +34,9 @@
             <asp:TextBox ID="txtAvailableSeats" runat="server"></asp:TextBox>
             <br />
             <br />
+            <asp:Label ID="lblError" runat="server" Text="Label"></asp:Label>
+            <br />
+            <br />
             <asp:Button ID="ButtonOk" runat="server" OnClick="ButtonOk_Click" Text="Ok" />
         </div>
     </form>

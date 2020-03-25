@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MovieWorldClasses;
 
-namespace MovieWorld_Testing
+namespace MovieWorldTesting
 {
     [TestClass]
     public class tstCustomers

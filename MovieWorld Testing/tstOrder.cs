@@ -3,13 +3,13 @@ using Class_Library;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MovieWorldClasses;
 
-namespace MovieWorld_Testing
+namespace MovieWorldTesting
 {
     [TestClass]
     public class TstOrder
     {
         string OrderNo = "1";
-        string DateOfOrder = "24/03/2020";
+        string DateOfOrder = DateTime.Now.Date.ToString();
         string Customer_Id = "Ubaydullah";
         string Staff_Id = "1";
         string TotalCost = "5.50";

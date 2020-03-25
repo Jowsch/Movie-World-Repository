@@ -35,12 +35,27 @@ public partial class OrderFinder : System.Web.UI.Page
     protected void ButtonOk_Click(object sender, EventArgs e)
     {
         clsOrder AnOrder = new clsOrder();
-        AnOrder.DateOfOrder = Convert.ToDateTime(txtDateOfOrder.Text);
-        AnOrder.Customer_Id = txtCustomerId.Text;
-        AnOrder.TotalCost = txtTotalCost.Text;
-        AnOrder.Staff_Id = txtStaffId.Text;
+        string OrderNo = txtOrderNo.Text;
+        string DateOfOrder = txtDateOfOrder.Text;
+        string TotalCost = txtTotalCost.Text;
+        string Customer_Id = txtCustomerId.Text;
+        string Staff_Id = txtStaffId.Text;
 
-        Session["AnOrder"] = AnOrder;
-        Response.Redirect("OrderViewer.aspx");
+        string Error = "";
+        Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, DateOfOrder);
+        if (Error == "")
+        {
+            AnOrder.OrderNo = OrderNo;
+            AnOrder.DateOfOrder = Convert.ToDateTime(DateOfOrder);
+            AnOrder.TotalCost = TotalCost;
+            AnOrder.Staff_Id = Staff_Id;
+            AnOrder.Customer_Id = Customer_Id;
+            Session["AnOrder"] = AnOrder;
+            Response.Redirect("OrderViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
     }
 }
