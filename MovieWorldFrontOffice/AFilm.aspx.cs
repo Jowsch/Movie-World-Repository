@@ -10,18 +10,24 @@ public partial class AFilm : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        clsFilm AFilm = new clsFilm();
-        AFilm = (clsFilm)Session["AFilm"];
-        Response.Write(AFilm.FilmID);
+        //clsFilm AFilm = new clsFilm();
+        //AFilm = (clsFilm)Session["AFilm"];
+        //Response.Write(AFilm.FilmID);
     }
 
     protected void ButtonOK_Click(object sender, EventArgs e)
     {
-        clsFilm AFilm = new clsFilm();
-        AFilm.FilmName = txtFilmName.Text;
-        AFilm.FilmDescription = txtFilmDesc.Text;
-        AFilm.FilmDepartureDate = txtDepartureDate.Text;
-        AFilm.FilmReleaseDate = txtRelease.Text;
-        AFilm.FilmCertificate = txtCert.Text;
+        clsFilm AFilm = new clsFilm
+        {
+            FilmName = txtFilmName.Text,
+            FilmDescription = txtFilmDesc.Text,
+            FilmCertificate = txtCert.Text,
+            FilmReleaseDate = Convert.ToDateTime(txtRelease.Text),
+            FilmDepartureDate = Convert.ToDateTime(txtDeparture.Text),
+            FilmShowing = showingCheck.Checked
+        };
+
+        Session["AFilm"] = AFilm;
+        Response.Redirect("FilmViewer.aspx");
     }
 }
