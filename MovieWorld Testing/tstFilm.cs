@@ -60,5 +60,120 @@ namespace MovieWorld_Testing
             film.FilmShowing = TestData;
             Assert.AreEqual(film.FilmShowing, TestData);
         }
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsFilm AFilm = new clsFilm();
+            Boolean Found = false;
+            Int32 FilmID = 1;
+            Found = AFilm.Find(FilmID);
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestFilmIDFound()
+        {
+            clsFilm AFilm = new clsFilm();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 FilmID = 3;
+            Found = AFilm.Find(FilmID);
+            if (AFilm.FilmID != 10)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestFilmNameFound()
+        {
+            clsFilm AFilm = new clsFilm();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 FilmID = 3;
+            Found = AFilm.Find(FilmID);
+            if (AFilm.FilmName != "Test Name")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestFilmDescriptionFound()
+        {
+            clsFilm AFilm = new clsFilm();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 FilmID = 3;
+            Found = AFilm.Find(FilmID);
+            if (AFilm.FilmDescription != "Test Description")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestFilmCertificateFound()
+        {
+            clsFilm AFilm = new clsFilm();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 FilmID = 3;
+            Found = AFilm.Find(FilmID);
+            if (AFilm.FilmCertificate != "15")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestFilmReleaseDateFound()
+        {
+            clsFilm AFilm = new clsFilm();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 FilmID = 3;
+            Found = AFilm.Find(FilmID);
+            if (AFilm.FilmReleaseDate !=Convert.ToDateTime("03/09/1996"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestFilmDepartureDateFound()
+        {
+            clsFilm AFilm = new clsFilm();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 FilmID = 3;
+            Found = AFilm.Find(FilmID);
+            if (AFilm.FilmDepartureDate != Convert.ToDateTime("07/09/1996"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestFilmShowingFound()
+        {
+            clsFilm AFilm = new clsFilm();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 FilmID = 3;
+            Found = AFilm.Find(FilmID);
+            if (AFilm.FilmShowing != true)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
     }
 }

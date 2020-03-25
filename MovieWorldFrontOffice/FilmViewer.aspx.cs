@@ -11,6 +11,7 @@ public partial class FilmViewer : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         clsFilm AFilm = new clsFilm();
+        AFilm = (clsFilm)Session["AFilm"];
         Response.Write(AFilm.FilmID);
     }
 }
