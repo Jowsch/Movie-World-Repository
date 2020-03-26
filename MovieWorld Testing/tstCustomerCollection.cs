@@ -80,5 +80,32 @@ namespace MovieWorld_Testing
             Assert.AreEqual(AllCustomers.Count, TestList.Count);
         }
 
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+
+            clsCustomers TestItem = new clsCustomers();
+
+            Int32 PrimaryKey = 0;
+
+            TestItem.active = true;
+            TestItem.customer_id = 1;
+            TestItem.first_name = "Bilbo";
+            TestItem.last_name = "Baggins";
+            TestItem.email = "bilboboy@hotmail.com";
+            TestItem.create_date = DateTime.Now.Date;
+
+            AllCustomers.ThisCustomer = TestItem;
+
+            PrimaryKey = AllCustomers.Add();
+
+            TestItem.customer_id = PrimaryKey;
+
+            AllCustomers.ThisCustomer.Find(PrimaryKey);
+
+            Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
+        }
+
     }
 }

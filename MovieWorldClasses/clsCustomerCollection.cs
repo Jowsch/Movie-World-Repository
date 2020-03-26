@@ -6,6 +6,7 @@ namespace MovieWorldClasses
     public class clsCustomerCollection
     {
         List<clsCustomers> mCustomerList = new List<clsCustomers>();
+        clsCustomers mThisCustomer = new clsCustomers();
 
         public clsCustomerCollection()
         {
@@ -13,6 +14,8 @@ namespace MovieWorldClasses
             Int32 RecordCount = 0;
 
             clsDataConnection DB = new clsDataConnection();
+
+            
 
             DB.Execute("sproc_tblCustomers_SelectAll");
 
@@ -56,6 +59,28 @@ namespace MovieWorldClasses
 
             }
             }
-        public clsCustomers ThisCustomer { get; set; }
+        public clsCustomers ThisCustomer
+        {
+            get
+            {
+                return mThisCustomer;
+            }
+            set
+            {
+                mThisCustomer = value;
+            }
+        }
+        public int Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@first_name", mThisCustomer.first_name);
+            DB.AddParameter("@last_name", mThisCustomer.last_name);
+            DB.AddParameter("@email", mThisCustomer.email);
+            DB.AddParameter("@active", mThisCustomer.active);
+            DB.AddParameter("@create_date", mThisCustomer.create_date);
+
+            return DB.Execute("sproc_tblCustomers_Insert");
+        }
     }
 }
