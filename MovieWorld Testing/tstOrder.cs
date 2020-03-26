@@ -86,62 +86,106 @@ namespace MovieWorldTesting
         public void FindMethodOK()
         {
             clsOrder AnOrder = new clsOrder();
-            string TestData = "1";
-            AnOrder.OrderNo = TestData;
-            Assert.AreEqual(AnOrder.OrderNo, TestData);
+            Boolean Found = false;
+            Int32 OrderNo = 1;
+            Found = AnOrder.Find(OrderNo);
+            Assert.IsTrue(Found);
         }
         [TestMethod]
         public void TestOrderNoFound()
         {
             clsOrder AnOrder = new clsOrder();
-            string TestData = "1";
-            AnOrder.OrderNo = TestData;
-            Assert.AreEqual(AnOrder.OrderNo, TestData);
+            Boolean Found = false;
+            Boolean Ok = true;
+            Int32 OrderNo = 1;
+            Found = AnOrder.Find(OrderNo);
+            if (AnOrder.OrderNo != "1")
+            {
+                Ok = false;
+            }
+            Assert.IsTrue(Ok);
+            
         }
 
         [TestMethod]
         public void CustomerIdFound()
         {
             clsOrder AnOrder = new clsOrder();
-            string TestData = "ubay";
-            AnOrder.Customer_Id = TestData;
-            Assert.AreEqual(AnOrder.Customer_Id, TestData);
-        }
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderNo = 1;
+            Found = AnOrder.Find(OrderNo);
+            if (AnOrder.Customer_Id != "ubay")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+                }
+
+
+
         [TestMethod]
         public void DateOfOrderFound()
         {
 
             clsOrder AnOrder = new clsOrder();
-            DateTime TestData = DateTime.Now.Date;
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderNo = 1;
+            Found = AnOrder.Find(OrderNo);
+            if (AnOrder.DateOfOrder != Convert.ToDateTime("05/06/2020"))
+                {
+                OK = false;
+            }    
+                       
+            Assert.IsTrue(OK);
 
-            AnOrder.DateOfOrder = TestData;
-            Assert.AreEqual(AnOrder.DateOfOrder, TestData);
+        
         }
 
         [TestMethod]
         public void Staff_IdFound()
         {
             clsOrder AnOrder = new clsOrder();
-            string TestData = "1";
-            AnOrder.Staff_Id = TestData;
-            Assert.AreEqual(AnOrder.Staff_Id, TestData);
-        }
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderNo = 1;
+            Found = AnOrder.Find(OrderNo);
+            if (AnOrder.Staff_Id != "1")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
 
+        }
+        [TestMethod]
         public void TestTotalCostFound()
         {
             clsOrder AnOrder = new clsOrder();
-            string TestData = "5.50";
-            AnOrder.TotalCost = TestData;
-            Assert.AreEqual(AnOrder.TotalCost, TestData);
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderNo = 1;
+            Found = AnOrder.Find(OrderNo);
+            if (AnOrder.TotalCost != "5.50")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
         public void AvailableSeatsFound()
         {
             clsOrder AnOrder = new clsOrder();
-            bool TestData = true;
-            AnOrder.AvailableSeats = TestData;
-            Assert.AreEqual(AnOrder.AvailableSeats, TestData);
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderNo = 1;
+            Found = AnOrder.Find(OrderNo);
+            if (AnOrder.AvailableSeats != true)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
