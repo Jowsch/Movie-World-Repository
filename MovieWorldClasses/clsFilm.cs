@@ -13,7 +13,7 @@ namespace MovieWorldClasses
         private DateTime mFilmDepartureDate;
         private bool mFilmShowing;
 
-        public Int32 FilmID
+        public int FilmID
         {
             get
             {
@@ -116,6 +116,7 @@ namespace MovieWorldClasses
             {
                 mFilmID = Convert.ToInt32(DB.DataTable.Rows[0]["FilmId"]);
                 mFilmName = Convert.ToString(DB.DataTable.Rows[0]["FilmName"]);
+                mFilmDescription = Convert.ToString(DB.DataTable.Rows[0]["FilmDescription"]);
                 mFilmCertificate = Convert.ToString(DB.DataTable.Rows[0]["FilmCertificate"]);
                 mFilmReleaseDate = Convert.ToDateTime(DB.DataTable.Rows[0]["FilmReleaseDate"]);
                 mFilmDepartureDate = Convert.ToDateTime(DB.DataTable.Rows[0]["FilmDepartureDate"]);
@@ -127,6 +128,11 @@ namespace MovieWorldClasses
             {
                 return false;
             }
+        }
+
+        public string Valid(object filmId, object filmName, object filmDescription, object filmCertificate, object filmReleaseDate, object filmDepartureDate)
+        {
+            return "";
         }
     }
 }

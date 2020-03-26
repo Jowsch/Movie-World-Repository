@@ -7,6 +7,14 @@ namespace MovieWorld_Testing
     [TestClass]
     public class tstFilm
     {
+        //good test data
+        String FilmId = "35";
+        String FilmName = "Frazers Film";
+        String FilmDescription = "Frazer made a Film";
+        String FilmCertificate = "12";
+        String FilmReleaseDate = "03/09/1996";
+        String FilmDepartureDate = "09/03/2020";
+
         [TestMethod]
         public void DescriptionPropertyOk()
         {
@@ -79,7 +87,7 @@ namespace MovieWorld_Testing
             Boolean OK = true;
             Int32 FilmID = 3;
             Found = AFilm.Find(FilmID);
-            if (AFilm.FilmID != 10)
+            if (AFilm.FilmID != 3)
             {
                 OK = false;
             }
@@ -174,6 +182,15 @@ namespace MovieWorld_Testing
                 OK = false;
             }
             Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            clsFilm AFilm = new clsFilm();
+            String Error = "";
+            Error = AFilm.Valid(FilmId, FilmName, FilmDescription, FilmCertificate, FilmReleaseDate, FilmDepartureDate);
+            Assert.AreEqual(Error, "");
         }
     }
 }
