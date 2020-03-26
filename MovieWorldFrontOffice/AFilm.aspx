@@ -16,7 +16,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="width: 275px">
+        <div style="width: 334px">
+            FilmID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="txtFilmId" runat="server"></asp:TextBox>
+&nbsp;<asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
+            <br />
             Film Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtFilmName" runat="server"></asp:TextBox>
             <br />
