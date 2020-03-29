@@ -124,6 +124,7 @@ namespace MovieWorldClasses
             //create string to hold variable for the error 
             String Error = "";
             DateTime DateTemp;
+
             if (filmName.Length == 0)
             {
                 Error = Error + "The Film Name may not be blank : ";
