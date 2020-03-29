@@ -17,18 +17,31 @@ public partial class AFilm : System.Web.UI.Page
 
     protected void ButtonOK_Click(object sender, EventArgs e)
     {
-        clsFilm AFilm = new clsFilm
-        {
-            FilmName = txtFilmName.Text,
-            FilmDescription = txtFilmDesc.Text,
-            FilmCertificate = txtCert.Text,
-            FilmReleaseDate = Convert.ToDateTime(txtRelease.Text),
-            FilmDepartureDate = Convert.ToDateTime(txtDeparture.Text),
-            FilmShowing = showingCheck.Checked
-        };
+        clsFilm AFilm = new clsFilm();
 
-        Session["AFilm"] = AFilm;
-        Response.Redirect("FilmViewer.aspx");
+        string FilmName = txtFilmName.Text;
+        string FilmDescription = txtFilmDesc.Text;
+        string FilmCertificate = txtCert.Text;
+        string FilmReleaseDate = txtRelease.Text;
+        string FilmDepartureDate = txtDeparture.Text;
+        Boolean FilmShowing = showingCheck.Checked;
+        string Error = "";
+
+        Error = AFilm.Valid(FilmName, FilmDescription, FilmCertificate, FilmReleaseDate, FilmDepartureDate);
+        if (Error == "")
+        {
+            AFilm.FilmName = FilmName;
+            AFilm.FilmDescription = FilmDescription;
+            AFilm.FilmCertificate = FilmCertificate;
+            AFilm.FilmReleaseDate = Convert.ToDateTime(FilmReleaseDate);
+            AFilm.FilmDepartureDate = Convert.ToDateTime(FilmDepartureDate);
+            Session["AFilm"] = AFilm;
+            Response.Write("FilmViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
     }
 
     //find button
