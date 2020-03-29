@@ -156,7 +156,6 @@ namespace MovieWorldClasses
                 Error = Error + "The Film Certificate may not be longer than 3 characters : ";
             }
 
-
             try
             {
                 DateTemp = Convert.ToDateTime(filmReleaseDate);
@@ -194,7 +193,6 @@ namespace MovieWorldClasses
             }
 
             return Error;
-
         }
     }
 }
