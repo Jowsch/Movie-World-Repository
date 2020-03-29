@@ -14,7 +14,7 @@ namespace MovieWorld_Testing
             "test description, test description, ";
         String FilmCertificate = "12";
         String FilmReleaseDate = "03/09/1996";
-        String FilmDepartureDate = "09/03/2020";
+        String FilmDepartureDate = Convert.ToString(DateTime.Now.Date);
 
         [TestMethod]
         public void DescriptionPropertyOk()
@@ -363,7 +363,7 @@ namespace MovieWorld_Testing
             //invoke method
             Error = AFilm.Valid(FilmName, FilmDescription, FilmCertificate, FilmReleaseDate, FilmDepartureDate);
             //test to see if result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
