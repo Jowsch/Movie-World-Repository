@@ -82,5 +82,13 @@ namespace MovieWorldClasses
 
             return DB.Execute("sproc_tblCustomers_Insert");
         }
+
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@customer_id", mThisCustomer.customer_id);
+            DB.Execute("sproc_tblCustomers_Delete");
+        }
     }
 }
