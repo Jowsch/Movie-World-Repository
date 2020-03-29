@@ -36,7 +36,7 @@ public partial class AFilm : System.Web.UI.Page
             AFilm.FilmReleaseDate = Convert.ToDateTime(FilmReleaseDate);
             AFilm.FilmDepartureDate = Convert.ToDateTime(FilmDepartureDate);
             Session["AFilm"] = AFilm;
-            Response.Write("FilmViewer.aspx");
+            Response.Redirect("FilmViewer.aspx");
         }
         else
         {

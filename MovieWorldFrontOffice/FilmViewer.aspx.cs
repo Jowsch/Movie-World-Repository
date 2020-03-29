@@ -12,6 +12,10 @@ public partial class FilmViewer : System.Web.UI.Page
     {
         clsFilm AFilm = new clsFilm();
         AFilm = (clsFilm)Session["AFilm"];
-        Response.Write(AFilm.FilmID);
+        Response.Write(AFilm.FilmDescription + "<br>");
+        Response.Write(AFilm.FilmCertificate + "<br>");
+        Response.Write(AFilm.FilmReleaseDate + "<br>");
+        Response.Write(AFilm.FilmDepartureDate + "<br>");
+        Response.Write(AFilm.FilmShowing);
     }
 }
