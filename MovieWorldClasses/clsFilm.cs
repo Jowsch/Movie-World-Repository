@@ -59,6 +59,7 @@ namespace MovieWorldClasses
                 mFilmCertificate = value;
             }
         }
+
         public DateTime FilmReleaseDate
         {
             get
@@ -70,6 +71,7 @@ namespace MovieWorldClasses
                 mFilmReleaseDate = value;
             }
         }
+
         public DateTime FilmDepartureDate
         {
             get
@@ -93,19 +95,6 @@ namespace MovieWorldClasses
                 mFilmShowing = value;
             }
         }
-
-        /*public bool Find(int FilmID)
-        {
-            mFilmID = 10;
-            mFilmName = "Test Name";
-            mFilmDescription = "Test Description";
-            mFilmCertificate = "15";
-            mFilmReleaseDate = Convert.ToDateTime("03/09/1996");
-            mFilmDepartureDate = Convert.ToDateTime("07/09/1996");
-            mFilmShowing = true;
-
-            return true;
-        }*/
 
         public bool Find(int FilmID)
         {
@@ -206,7 +195,5 @@ namespace MovieWorldClasses
             return Error;
 
         }
-
-
     }
 }
