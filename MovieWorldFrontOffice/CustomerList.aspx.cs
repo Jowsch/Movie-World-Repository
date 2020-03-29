@@ -28,4 +28,31 @@ public partial class CustomerList : System.Web.UI.Page
     {
 
     }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        //add
+        Session["customer_num"] = -1;
+
+        Response.Redirect("ACustomer.aspx");
+    }
+
+    protected void Button1_Click1(object sender, EventArgs e)
+    {
+        //del
+        Int32 customer_id;
+
+        if (lstCustomerList.SelectedIndex != -1)
+        {
+            customer_id = Convert.ToInt32(lstCustomerList.SelectedValue);
+
+            Session["customer_id"] = customer_id;
+            Response.Redirect("DeleteCustomer.aspx");
+        }
+        else
+        {
+            lblError.Text = "Please select a record to delete from the list";
+        }
+
+    }
 }
