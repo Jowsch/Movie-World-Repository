@@ -137,5 +137,59 @@ namespace MovieWorld_Testing
             Assert.IsFalse(Found);
         }
 
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            clsCustomers TestItem = new clsCustomers();
+
+            Int32 PrimaryKey = 0;
+
+            TestItem.active = true;
+            TestItem.customer_id = 1;
+            TestItem.first_name = "Bilbo";
+            TestItem.last_name = "Baggins";
+            TestItem.email = "bilboboy@hotmail.com";
+            TestItem.create_date = DateTime.Now.Date;
+
+            AllCustomers.ThisCustomer = TestItem;
+
+            PrimaryKey = AllCustomers.Add();
+
+            TestItem.customer_id = PrimaryKey;
+
+            TestItem.active = false;
+            TestItem.customer_id = 3;
+            TestItem.first_name = "abc";
+            TestItem.last_name = "efg";
+            TestItem.email = "abc@hotmail.com";
+            TestItem.create_date = DateTime.Now.Date;
+
+            AllCustomers.ThisCustomer = TestItem;
+
+            AllCustomers.Update();
+            AllCustomers.ThisCustomer.Find(PrimaryKey);
+            Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
+        }
+
+        [TestMethod]
+        public void ReportByEmailMethodOK()
+        {
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+
+            FilteredCustomers.ReportByEmail("");
+            Assert.AreEqual(AllCustomers.Count, FilteredCustomers.Count);
+        }
+
+        [TestMethod]
+        public void ReportByEmailNoneFound()
+        {
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+            FilteredCustomers.ReportByEmail("xxxx");
+
+            Assert.AreEqual(0, FilteredCustomers.Count);
+        }
+
     }
 }

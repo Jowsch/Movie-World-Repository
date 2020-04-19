@@ -7,7 +7,7 @@
     <title></title>
     <style type="text/css">
         #form1 {
-            height: 649px;
+            height: 750px;
         }
     </style>
 </head>
@@ -19,8 +19,18 @@
         <br />
         <br />
         <asp:Button ID="btnAdd" runat="server" OnClick="Button1_Click" Text="Add" />
-    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;<asp:Button ID="Edit" runat="server" OnClick="Button1_Click2" Text="Edit" />
+        &nbsp;
         <asp:Button ID="btnDel" runat="server" OnClick="Button1_Click1" Text="Delete" />
+        <br />
+        <br />
+        Enter an email to search for:
+        <asp:TextBox ID="emailInput" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <asp:Button ID="Apply" runat="server" OnClick="Button1_Click3" Text="Apply" />
+        <asp:Button ID="Clear" runat="server" Text="Clear" OnClick="Clear_Click" />
+        <br />
         <br />
         <asp:Label ID="lblError" runat="server" Text="Label"></asp:Label>
     </form>
