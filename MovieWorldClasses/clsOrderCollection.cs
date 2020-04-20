@@ -8,6 +8,7 @@ namespace Class_Library
     public class clsOrderCollection
     {
         List<clsOrder> mOrderList = new List<clsOrder>();
+        clsOrder mThisOrder = new clsOrder();
 
         public clsOrderCollection()
         {
@@ -56,6 +57,30 @@ namespace Class_Library
 
             }
         }
-             public clsOrder ThisOrder { get; set; }
+             public clsOrder ThisOrder
+        {
+            get
+            {
+                return mThisOrder;
+
+            }
+            set
+            {
+                mThisOrder = value;
+
+            }
+        }
+
+        //       public int Add()
+        //       {
+        //           clsDataConnection DB = new clsDataConnection();
+        //           Db.AddParameter("CustomerId", mThisOrder.customerId
+        //           Db.AddParameter("staffid", mThisOrder.StaffID
+        //           Db.AddParameter("TOTALCOST", mThisOrder.TOTALCOST
+        //           Db.AddParameter("DATEOFORDER", mThisOrder.DATEOFORDER
+        //           Db.AddParameter("AVAILABE SEATS", mThisOrder.OrderNo
+        //           
+        //           return Db.Execute("sproc_tblOrder_Insert");
+        //       }
     }
 }

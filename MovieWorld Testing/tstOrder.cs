@@ -496,6 +496,27 @@ namespace MovieWorldTesting
             Assert.AreNotEqual(Error, "");
         }
 
+ //       [TestMethod]
+ //       public void AddMethodOK()
+ //       {
+ //           clsOrderCollection AllOrders = new clsOrderCollection();
+ //           clsOrder TestItem = new clsOrder();
+ //           Int32 PrimaryKey = 0;
+//
+//            
+//            TestItem.Customer_Id = "ubay";
+//            TestItem.TotalCost = "1";
+//            TestItem.DateOfOrder = DateTime.Now.Date;
+//            TestItem.Staff_Id = "1";
+//            TestItem.AvailableSeats = true;
+//
+//            AllOrders.ThisOrder = TestItem;
+//            PrimaryKey = AllOrders.Add();
+//            TestItem.OrderNo = PrimaryKey;
+ //           AllOrders.ThisOrder.Find(PrimaryKey);
+ //           Assert.AreEqual(AllOrders.ThisOrder, TestItem); 
+ //       }
+
 
 
     }
