@@ -19,7 +19,7 @@ namespace Class_Library
 
 
             {
-                mOrderNo = Convert.ToString(DB.DataTable.Rows[0]["OrderNo"]);
+                mOrderNo = Convert.ToInt32(DB.DataTable.Rows[0]["OrderNo"]);
                 mCustomer_Id = Convert.ToString(DB.DataTable.Rows[0]["CustomerId"]);
                 mStaff_Id = Convert.ToString(DB.DataTable.Rows[0]["StaffId"]);
                 mTotalCost = Convert.ToString(DB.DataTable.Rows[0]["TotalCost"]);
@@ -60,8 +60,8 @@ namespace Class_Library
                 mDateOfOrder = value;
             }
         }
-        private string mOrderNo;
-        public string OrderNo
+        private Int32 mOrderNo;
+        public Int32 OrderNo
         {
             get
             {
@@ -121,18 +121,11 @@ namespace Class_Library
             }
         }
 
-        public string Valid(string OrderNo, string Customer_Id, string Staff_Id, string TotalCost, string DateOfOrder)
+        public string Valid(string Customer_Id, string Staff_Id, string TotalCost, string DateOfOrder)
         {
             String Error = "";
             DateTime DateTemp;
-            if (OrderNo.Length == 0)
-            {
-                Error = Error + "The order No may not be blank: ";
-            }
-            if (OrderNo.Length > 50)
-            {
-                Error = Error + "The order No must be less than 50 characters: ";
-            }
+            
             try
             {
                 DateTemp = Convert.ToDateTime(DateOfOrder);

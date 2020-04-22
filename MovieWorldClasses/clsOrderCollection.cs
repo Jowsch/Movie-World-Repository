@@ -21,7 +21,7 @@ namespace Class_Library
             while (Index < RecordCount)
             {
                 clsOrder AnOrder = new clsOrder();
-                AnOrder.OrderNo = Convert.ToString(DB.DataTable.Rows[Index]["OrderNo"]);
+                AnOrder.OrderNo = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderNo"]);
                 AnOrder.Customer_Id = Convert.ToString(DB.DataTable.Rows[Index]["CustomerId"]);
                 AnOrder.Staff_Id = Convert.ToString(DB.DataTable.Rows[Index]["StaffId"]);
                 AnOrder.TotalCost = Convert.ToString(DB.DataTable.Rows[Index]["TotalCost"]);
@@ -70,17 +70,37 @@ namespace Class_Library
 
             }
         }
+        public int Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@CustomerId", mThisOrder.Customer_Id);
+            DB.AddParameter("@StaffId", mThisOrder.Staff_Id);
+            DB.AddParameter("@TotalCost", mThisOrder.TotalCost);
+            DB.AddParameter("@DateOfOrder", mThisOrder.DateOfOrder);
+            DB.AddParameter("@Available Seats", mThisOrder.OrderNo);
+                   
+                   return DB.Execute("sproc_tblOrder_Insert");
+               }
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@OrderNo", mThisOrder.OrderNo);
+           DB.Execute("sproc_tblCustomers_Delete");
+        }
+        public void Update()
+        {
+            clsDataConnection DB = new clsDataConnection();
 
-        //       public int Add()
-        //       {
-        //           clsDataConnection DB = new clsDataConnection();
-        //           Db.AddParameter("CustomerId", mThisOrder.customerId
-        //           Db.AddParameter("staffid", mThisOrder.StaffID
-        //           Db.AddParameter("TOTALCOST", mThisOrder.TOTALCOST
-        //           Db.AddParameter("DATEOFORDER", mThisOrder.DATEOFORDER
-        //           Db.AddParameter("AVAILABE SEATS", mThisOrder.OrderNo
-        //           
-        //           return Db.Execute("sproc_tblOrder_Insert");
-        //       }
+            DB.AddParameter("@OrderNo", mThisOrder.OrderNo);
+            DB.AddParameter("@CustomerId", mThisOrder.Customer_Id);
+            DB.AddParameter("@StaffId", mThisOrder.Staff_Id);
+            DB.AddParameter("@TotalCost", mThisOrder.TotalCost);
+            DB.AddParameter("@DateOfOrder", mThisOrder.DateOfOrder);
+            DB.AddParameter("@Available Seats", mThisOrder.OrderNo);
+
+            DB.Execute("sproc_tblCustomers_Update");
+        }
     }
-}
+
+    }
+

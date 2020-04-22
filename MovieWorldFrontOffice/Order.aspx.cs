@@ -16,17 +16,17 @@ public partial class Order : System.Web.UI.Page
     protected void ButtonOk_Click(object sender, EventArgs e)
     {
         clsOrder AnOrder = new clsOrder();
-        string OrderNo = txtOrderNo.Text;
+        
         string DateOfOrder = txtDateOfOrder.Text;
         string TotalCost = txtTotalCost.Text;
         string Customer_Id = txtCustomerId.Text;
         string Staff_Id = txtStaffId.Text;
 
         string Error = "";
-        Error = AnOrder.Valid(OrderNo, Customer_Id, Staff_Id, TotalCost, DateOfOrder);
+        Error = AnOrder.Valid(Customer_Id, Staff_Id, TotalCost, DateOfOrder);
         if (Error == "")
         {
-            AnOrder.OrderNo = OrderNo;
+            
             AnOrder.DateOfOrder = Convert.ToDateTime(DateOfOrder);
             AnOrder.TotalCost = TotalCost;
             AnOrder.Staff_Id = Staff_Id;
