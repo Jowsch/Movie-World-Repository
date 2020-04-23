@@ -91,7 +91,7 @@ namespace MovieWorldTesting
         [TestMethod]
         public void DeleteMethodOK()
         {
-            clsOrderCollection AllCustomers = new clsOrderCollection();
+            clsOrderCollection AllOrders = new clsOrderCollection();
 
             clsOrder TestItem = new clsOrder();
 
@@ -104,16 +104,16 @@ namespace MovieWorldTesting
             TestItem.Staff_Id = "1";
             TestItem.AvailableSeats = true;
 
-            AllCustomers.ThisOrder = TestItem;
+            AllOrders.ThisOrder = TestItem;
 
-            PrimaryKey = AllCustomers.Add();
+            PrimaryKey = AllOrders.Add();
 
             TestItem.OrderNo = PrimaryKey;
 
-            AllCustomers.ThisOrder.Find(PrimaryKey);
-            AllCustomers.Delete();
+            AllOrders.ThisOrder.Find(PrimaryKey);
+            AllOrders.Delete();
 
-            Boolean Found = AllCustomers.ThisOrder.Find(PrimaryKey);
+            Boolean Found = AllOrders.ThisOrder.Find(PrimaryKey);
 
             Assert.IsFalse(Found);
         }
