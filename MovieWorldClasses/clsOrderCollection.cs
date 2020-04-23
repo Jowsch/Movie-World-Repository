@@ -100,6 +100,41 @@ namespace Class_Library
 
             DB.Execute("sproc_tblCustomers_Update");
         }
+//        public void ReportByCustomerId(String CustomerId)
+//        {
+//            clsDataConnection DB = new clsDataConnection();
+
+//            DB.AddParameter("@CustomerId", CustomerId);
+//            DB.Execute("sproc_TableOrder_FilterByCustomerId");
+
+ //           PopulateArray(DB);
+ //       }
+
+//        public void PopulateArray(clsDataConnection DB)
+//        {
+//            Int32 Index = 0;
+//            Int32 RecordCount = 0;
+
+//            RecordCount = DB.Count;
+
+//            mOrderList = new List<clsOrder>();
+//
+//           while (Index < RecordCount)
+//            {
+//                clsOrder AnOrder = new clsOrder();
+
+//                AnOrder.OrderNo = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderNo"]);
+//                AnOrder.Customer_Id = Convert.ToString(DB.DataTable.Rows[Index]["CustomerId"]);
+//                AnOrder.Staff_Id = Convert.ToString(DB.DataTable.Rows[Index]["StaffId"]);
+ //               AnOrder.TotalCost = Convert.ToString(DB.DataTable.Rows[Index]["TotalCost"]);
+ //               AnOrder.AvailableSeats = Convert.ToBoolean(DB.DataTable.Rows[Index]["AvailableSeats"]);
+ //               AnOrder.DateOfOrder = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateOfOrder"]);
+//
+ //               mOrderList.Add(AnOrder);
+//
+ //               Index++;
+ //           }
+ //       }
     }
 
     }
