@@ -73,32 +73,32 @@ namespace Class_Library
         public int Add()
         {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@CustomerId", mThisOrder.Customer_Id);
+            DB.AddParameter("@CustomerID", mThisOrder.Customer_Id);
             DB.AddParameter("@StaffId", mThisOrder.Staff_Id);
             DB.AddParameter("@TotalCost", mThisOrder.TotalCost);
             DB.AddParameter("@DateOfOrder", mThisOrder.DateOfOrder);
-            DB.AddParameter("@Available Seats", mThisOrder.OrderNo);
+            DB.AddParameter("@AvailableSeats", mThisOrder.OrderNo);
                    
-                   return DB.Execute("sproc_tblOrder_Insert");
+                   return DB.Execute("sproc_Tableorder_Insert");
                }
         public void Delete()
         {
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@OrderNo", mThisOrder.OrderNo);
-           DB.Execute("sproc_tblCustomers_Delete");
+            DB.Execute("sproc_TableOrder_Delete");
         }
         public void Update()
         {
             clsDataConnection DB = new clsDataConnection();
 
             DB.AddParameter("@OrderNo", mThisOrder.OrderNo);
-            DB.AddParameter("@CustomerId", mThisOrder.Customer_Id);
+            DB.AddParameter("@CustomerID", mThisOrder.Customer_Id);
             DB.AddParameter("@StaffId", mThisOrder.Staff_Id);
             DB.AddParameter("@TotalCost", mThisOrder.TotalCost);
             DB.AddParameter("@DateOfOrder", mThisOrder.DateOfOrder);
-            DB.AddParameter("@Available Seats", mThisOrder.OrderNo);
+            DB.AddParameter("@AvailableSeats", mThisOrder.OrderNo);
 
-            DB.Execute("sproc_tblCustomers_Update");
+            DB.Execute("sproc_TableOrder_Update");
         }
 //        public void ReportByCustomerId(String CustomerId)
 //        {

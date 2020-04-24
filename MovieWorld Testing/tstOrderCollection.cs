@@ -163,7 +163,7 @@ namespace MovieWorldTesting
 //        }
 
 //        [TestMethod]
-//        public void ReportByEmailNoneFound()
+//        public void ReportByCustomerIdNoneFound()
 //        {
 //            clsOrderCollection FilteredOrders = new clsOrderCollection();
 //            FilteredOrders.ReportByCustomerId("xxxx");
