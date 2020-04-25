@@ -152,24 +152,24 @@ namespace MovieWorldTesting
             Assert.AreEqual(AllOrders.ThisOrder, TestItem);
         }
 
-//        [TestMethod]
-//        public void ReportByCustomerIdMethodOK()
-//        {
-//            clsOrderCollection AllOrders = new clsOrderCollection();
-//            clsOrderCollection FilteredOrders = new clsOrderCollection();
+        [TestMethod]
+        public void ReportByCustomerIdMethodOK()
+        {
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            clsOrderCollection FilteredOrders = new clsOrderCollection();
 
-//            FilteredOrders.ReportByCustomerId("");
-//            Assert.AreEqual(AllOrders.Count, FilteredOrders.Count);
-//        }
+            FilteredOrders.ReportByCustomerId("");
+            Assert.AreEqual(AllOrders.Count, FilteredOrders.Count);
+        }
 
-//        [TestMethod]
-//        public void ReportByCustomerIdNoneFound()
-//        {
-//            clsOrderCollection FilteredOrders = new clsOrderCollection();
-//            FilteredOrders.ReportByCustomerId("xxxx");
+        [TestMethod]
+        public void ReportByCustomerIdNoneFound()
+        {
+            clsOrderCollection FilteredOrders = new clsOrderCollection();
+            FilteredOrders.ReportByCustomerId("xxxx");
 
-//            Assert.AreEqual(0, FilteredOrders.Count);
-//        }
+            Assert.AreEqual(0, FilteredOrders.Count);
+        }
 
     }
 }

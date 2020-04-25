@@ -11,6 +11,8 @@
             <div style="height: 257px">
             Order No:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtOrderNo" runat="server"></asp:TextBox>
+            &nbsp;&nbsp;
+            <asp:Button ID="ButtonFind" runat="server" OnClick="ButtonFind_Click" Text="Find" style="height: 26px" />
             <br />
             <br />
             Date Of Order:&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtDateOfOrder" runat="server"></asp:TextBox>
