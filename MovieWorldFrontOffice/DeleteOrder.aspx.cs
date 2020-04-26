@@ -8,15 +8,15 @@ using System.Web.UI.WebControls;
 
 public partial class DeleteOrder : System.Web.UI.Page
 {
+    Int32 OrderNo;
+
     protected void Page_Load(object sender, EventArgs e)
     {
-        Int32 OrderNo;
-        {
-            OrderNo = Convert.ToInt32(Session["OrderNo"]);
-        }
+        OrderNo = Convert.ToInt32(Session["OrderNo"]);
     }
-
-        protected void btnYes_Click(object sender, EventArgs e)
+        
+        
+      protected void btnYes_Click(object sender, EventArgs e)
         {
             clsOrderCollection OrderBook = new clsOrderCollection();
 
@@ -27,3 +27,4 @@ public partial class DeleteOrder : System.Web.UI.Page
             Response.Redirect("OrderList.aspx");
         }
     }
+

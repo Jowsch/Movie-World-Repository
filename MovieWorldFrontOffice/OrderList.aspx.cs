@@ -37,9 +37,9 @@ public partial class OrderList : System.Web.UI.Page
     protected void ButtonAdd_Click(object sender, EventArgs e)
     {
         //add
-        Session["Order_num"] = -1;
+        Session["OrderNo"] = -1;
 
-        Response.Redirect("AnOrder.aspx");
+        Response.Redirect("Order.aspx");
     }
 
     protected void ButtonDelete_Click1(object sender, EventArgs e)
@@ -78,11 +78,11 @@ public partial class OrderList : System.Web.UI.Page
         }
     }
 
-    protected void Button1_Click3(object sender, EventArgs e)
+    protected void ButtonApply_Click3(object sender, EventArgs e)
     {
-        clsOrderCollection Customers = new clsOrderCollection();
-        Customers.ReportByCustomerId(CustomerIdInput.Text);
-        lstOrderList.DataSource = Customers.OrderList;
+        clsOrderCollection Orders = new clsOrderCollection();
+        Orders.ReportByCustomerId(CustomerIdInput.Text);
+        lstOrderList.DataSource = Orders.OrderList;
 
         lstOrderList.DataValueField = "OrderNo";
         lstOrderList.DataTextField = "CustomerId";
@@ -91,8 +91,8 @@ public partial class OrderList : System.Web.UI.Page
 
     protected void Clear_Click(object sender, EventArgs e)
     {
-        clsOrderCollection Customers = new clsOrderCollection();
-        Customers.ReportByCustomerId("");
+        clsOrderCollection Orders = new clsOrderCollection();
+        Orders.ReportByCustomerId("");
 
         CustomerIdInput.Text = "";
         lstOrderList.DataValueField = "OrderNo";
