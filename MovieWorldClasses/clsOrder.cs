@@ -125,7 +125,7 @@ namespace Class_Library
         {
             String Error = "";
             DateTime DateTemp;
-            
+
             try
             {
                 DateTemp = Convert.ToDateTime(DateOfOrder);
@@ -160,14 +160,25 @@ namespace Class_Library
             {
                 Error = Error + "The Customer Id must not be more than 50 characters: ";
             }
+            if (TotalCost.Length == 0)
+            {
+                Error = Error + "The Total Cost may not be blank: ";
+            }
+            if (TotalCost.Length > 50)
+            {
+                Error = Error + "The Total Cost must not be more than 50 characters: ";
+            }
+            
 
 
-            return Error;
+                return Error;
+            }
+
+
+
         }
-
-
 
     }
 
-}
+
 
