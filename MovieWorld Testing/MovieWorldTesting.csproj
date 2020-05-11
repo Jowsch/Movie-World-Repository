@@ -53,6 +53,7 @@
     <Compile Include="tstCustomerCollection.cs" />
     <Compile Include="tstCustomers.cs" />
     <Compile Include="tstFilm.cs" />
+    <Compile Include="tstReview.cs" />
     <Compile Include="tstStaff.cs" />
   </ItemGroup>
   <ItemGroup>
