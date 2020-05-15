@@ -29,6 +29,7 @@ public partial class Order : System.Web.UI.Page
         txtCustomerId.Text = OrderList.ThisOrder.Customer_Id;
         txtTotalCost.Text = OrderList.ThisOrder.TotalCost;
         txtStaffId.Text = OrderList.ThisOrder.Staff_Id;
+        txtAvailableSeats.Text = OrderList.ThisOrder.AvailableSeats.ToString();
         txtDateOfOrder.Text = OrderList.ThisOrder.DateOfOrder.ToString();
     }
 
