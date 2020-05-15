@@ -85,7 +85,7 @@ public partial class OrderList : System.Web.UI.Page
         lstOrderList.DataSource = Orders.OrderList;
 
         lstOrderList.DataValueField = "OrderNo";
-        lstOrderList.DataTextField = "CustomerId";
+        lstOrderList.DataTextField = "Customer_Id";
         lstOrderList.DataBind();
     }
 
@@ -96,7 +96,7 @@ public partial class OrderList : System.Web.UI.Page
 
         CustomerIdInput.Text = "";
         lstOrderList.DataValueField = "OrderNo";
-        lstOrderList.DataTextField = "CustomerId";
+        lstOrderList.DataTextField = "Customer_Id";
         lstOrderList.DataBind();
     }
 }

@@ -87,7 +87,7 @@ namespace MovieWorldTesting
         {
             clsOrder AnOrder = new clsOrder();
             Boolean Found = false;
-            Int32 OrderNo = 1;
+            Int32 OrderNo = 2;
             Found = AnOrder.Find(OrderNo);
             Assert.IsTrue(Found);
         }
@@ -97,9 +97,9 @@ namespace MovieWorldTesting
             clsOrder AnOrder = new clsOrder();
             Boolean Found = false;
             Boolean Ok = true;
-            Int32 OrderNo = 1;
+            Int32 OrderNo = 2;
             Found = AnOrder.Find(OrderNo);
-            if (AnOrder.OrderNo != 1)
+            if (AnOrder.OrderNo != 2)
             {
                 Ok = false;
             }
@@ -113,9 +113,9 @@ namespace MovieWorldTesting
             clsOrder AnOrder = new clsOrder();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderNo = 1;
+            Int32 OrderNo = 2;
             Found = AnOrder.Find(OrderNo);
-            if (AnOrder.Customer_Id != "ubay")
+            if (AnOrder.Customer_Id != "Samuel")
             {
                 OK = false;
             }
@@ -131,9 +131,9 @@ namespace MovieWorldTesting
             clsOrder AnOrder = new clsOrder();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderNo = 1;
+            Int32 OrderNo = 2;
             Found = AnOrder.Find(OrderNo);
-            if (AnOrder.DateOfOrder != Convert.ToDateTime("05/06/2020"))
+            if (AnOrder.DateOfOrder != Convert.ToDateTime("06/06/2020"))
             {
                 OK = false;
             }
@@ -149,9 +149,9 @@ namespace MovieWorldTesting
             clsOrder AnOrder = new clsOrder();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderNo = 1;
+            Int32 OrderNo = 2;
             Found = AnOrder.Find(OrderNo);
-            if (AnOrder.Staff_Id != "1")
+            if (AnOrder.Staff_Id != "2")
             {
                 OK = false;
             }
@@ -164,9 +164,9 @@ namespace MovieWorldTesting
             clsOrder AnOrder = new clsOrder();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderNo = 1;
+            Int32 OrderNo = 2;
             Found = AnOrder.Find(OrderNo);
-            if (AnOrder.TotalCost != "5.50")
+            if (AnOrder.TotalCost != "6.60")
             {
                 OK = false;
             }
@@ -179,7 +179,7 @@ namespace MovieWorldTesting
             clsOrder AnOrder = new clsOrder();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderNo = 1;
+            Int32 OrderNo = 2;
             Found = AnOrder.Find(OrderNo);
             if (AnOrder.AvailableSeats != true)
             {
