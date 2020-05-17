@@ -65,7 +65,7 @@ public partial class OrderList : System.Web.UI.Page
     {
         Int32 OrderNo;
 
-        if (lstOrderList.SelectedIndex != 1)
+        if (lstOrderList.SelectedIndex != -1)
         {
             OrderNo = Convert.ToInt32(lstOrderList.SelectedValue);
             Session["OrderNo"] = OrderNo;
