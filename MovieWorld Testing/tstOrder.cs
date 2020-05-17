@@ -166,7 +166,7 @@ namespace MovieWorldTesting
             Boolean OK = true;
             Int32 OrderNo = 2;
             Found = AnOrder.Find(OrderNo);
-            if (AnOrder.TotalCost != "6.60")
+            if (AnOrder.TotalCost != "£6.60")
             {
                 OK = false;
             }
