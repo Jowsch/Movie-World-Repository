@@ -8,8 +8,19 @@ using MovieWorldClasses;
 
 public partial class AFilm : System.Web.UI.Page
 {
+    Int32 FilmId;
+
     protected void Page_Load(object sender, EventArgs e)
     {
+        FilmId = Convert.ToInt32(Session["FilmId"]);
+        if (IsPostBack == false)
+        {
+            if (FilmId != -1)
+            {
+                DisplayFilm();
+            }
+        }
+
         //clsFilm AFilm = new clsFilm();
         //AFilm = (clsFilm)Session["AFilm"];
         //Response.Write(AFilm.FilmID);
@@ -30,13 +41,31 @@ public partial class AFilm : System.Web.UI.Page
         Error = AFilm.Valid(FilmName, FilmDescription, FilmCertificate, FilmReleaseDate, FilmDepartureDate);
         if (Error == "")
         {
+            AFilm.FilmID = FilmId;
             AFilm.FilmName = FilmName;
             AFilm.FilmDescription = FilmDescription;
             AFilm.FilmCertificate = FilmCertificate;
             AFilm.FilmReleaseDate = Convert.ToDateTime(FilmReleaseDate);
             AFilm.FilmDepartureDate = Convert.ToDateTime(FilmDepartureDate);
-            Session["AFilm"] = AFilm;
+
+            clsFilmCollection FilmList = new clsFilmCollection();
+
+            if (FilmId == -1)
+            {
+                FilmList.ThisFilm = AFilm;
+                FilmList.Add();
+            }
+            else
+            {
+                FilmList.ThisFilm.Find(FilmId);
+                FilmList.ThisFilm = AFilm;
+                FilmList.Update();
+
+            }
+
             Response.Redirect("FilmViewer.aspx");
+
+            //Session["AFilm"] = AFilm;
         }
         else
         {
@@ -64,5 +93,17 @@ public partial class AFilm : System.Web.UI.Page
             txtRelease.Text = AFilm.FilmReleaseDate.ToString();
             txtDeparture.Text = AFilm.FilmDepartureDate.ToString();
         }
+    }
+
+    void DisplayAddress()
+    {
+        clsFilmCollection FilmList = new clsFilmCollection();
+        FilmList.ThisFilm.Find(FilmId);
+
+        txtFilmName.Text = FilmList.ThisFilm.FilmName;
+        txtFilmDesc.Text = FilmList.ThisFilm.FilmDescription;
+        txtCert.Text = FilmList.ThisFilm.FilmCertificate;
+        txtRelease.Text = FilmList.ThisFilm.FilmReleaseDate.ToString();
+        txtDeparture.Text = FilmList.ThisFilm.FilmDepartureDate.ToString();
     }
 }
