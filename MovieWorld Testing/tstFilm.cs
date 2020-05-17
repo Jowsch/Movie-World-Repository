@@ -148,7 +148,7 @@ namespace MovieWorld_Testing
             Boolean OK = true;
             Int32 FilmID = 3;
             Found = AFilm.Find(FilmID);
-            if (AFilm.FilmReleaseDate !=Convert.ToDateTime("03/09/1996"))
+            if (AFilm.FilmReleaseDate != Convert.ToDateTime("03/09/1996"))
             {
                 OK = false;
             }
@@ -678,7 +678,7 @@ namespace MovieWorld_Testing
             //create test data
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
-            TestDate = TestDate.AddYears(+2);           
+            TestDate = TestDate.AddYears(+2);
             string FilmReleaseDate = TestDate.ToString();
             //invoke method
             Error = AFilm.Valid(FilmName, FilmDescription, FilmCertificate, FilmReleaseDate, FilmDepartureDate);
@@ -903,7 +903,7 @@ namespace MovieWorld_Testing
             String Error = "";
             //create test data
             DateTime TestDate;
-            TestDate = new DateTime(2500, 1, 1);  
+            TestDate = new DateTime(2500, 1, 1);
             string FilmDepartureDate = TestDate.ToString();
             //invoke method
             Error = AFilm.Valid(FilmName, FilmDescription, FilmCertificate, FilmReleaseDate, FilmDepartureDate);
@@ -944,6 +944,71 @@ namespace MovieWorld_Testing
             TestFilm.FilmID = PrimaryKey;
             AllFilms.ThisFilm.Find(PrimaryKey);
             Assert.AreEqual(AllFilms.ThisFilm, TestFilm);
+        }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            clsFilmCollection AllFilms = new clsFilmCollection();
+            clsFilm TestFilm = new clsFilm();
+            Int32 PrimaryKey = 0;
+
+            TestFilm.FilmName = "Frazers Film";
+            TestFilm.FilmDescription = "test description, test description, test description, " +
+                "test description, test description, ";
+            TestFilm.FilmCertificate = "12";
+            TestFilm.FilmReleaseDate = DateTime.Now.Date;
+            TestFilm.FilmDepartureDate = DateTime.Now.Date.AddYears(1);
+
+            AllFilms.ThisFilm = TestFilm;
+            PrimaryKey = AllFilms.Add();
+            TestFilm.FilmID = PrimaryKey;
+            AllFilms.ThisFilm.Find(PrimaryKey);
+            AllFilms.Delete();
+            Boolean Found = AllFilms.ThisFilm.Find(PrimaryKey);
+            Assert.IsFalse(Found);
+        }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            clsFilmCollection AllFilms = new clsFilmCollection();
+            clsFilm TestFilm = new clsFilm();
+            Int32 PrimaryKey = 0;
+
+            TestFilm.FilmName = "Frazers Film";
+            TestFilm.FilmDescription = "test description, test description, test description, " +
+                "test description, test description, ";
+            TestFilm.FilmCertificate = "12";
+            TestFilm.FilmReleaseDate = DateTime.Now.Date;
+            TestFilm.FilmDepartureDate = DateTime.Now.Date.AddYears(1);
+
+            AllFilms.ThisFilm = TestFilm;
+            PrimaryKey = AllFilms.Add();
+            TestFilm.FilmID = PrimaryKey;
+
+            TestFilm.FilmName = "Frazers Film2";
+            TestFilm.FilmDescription = "test description, test description, test description, " +
+                "test description, test description2, ";
+            TestFilm.FilmCertificate = "15";
+            TestFilm.FilmReleaseDate = DateTime.Now.Date;
+            TestFilm.FilmDepartureDate = DateTime.Now.Date.AddYears(1);
+
+            AllFilms.ThisFilm = TestFilm;
+
+            AllFilms.Update();
+
+            AllFilms.ThisFilm.Find(PrimaryKey);
+            Assert.AreEqual(AllFilms.ThisFilm, TestFilm);
+        }
+
+        [TestMethod]
+        public void ReportByFilmNameMethodOK()
+        {
+            clsFilmCollection AllFilms = new clsFilmCollection();
+            clsFilmCollection FilteredFilms = new clsFilmCollection();
+            FilteredFilms.ReportByFilmName("");
+            Assert.AreEqual(AllFilms.Count, FilteredFilms.Count);
         }
 
     }
