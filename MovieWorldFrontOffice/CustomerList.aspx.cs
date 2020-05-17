@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieWorldClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -27,5 +28,71 @@ public partial class CustomerList : System.Web.UI.Page
     protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
     {
 
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        //add
+        Session["customer_num"] = -1;
+
+        Response.Redirect("ACustomer.aspx");
+    }
+
+    protected void Button1_Click1(object sender, EventArgs e)
+    {
+        //del
+        Int32 customer_id;
+
+        if (lstCustomerList.SelectedIndex != -1)
+        {
+            customer_id = Convert.ToInt32(lstCustomerList.SelectedValue);
+
+            Session["customer_id"] = customer_id;
+            Response.Redirect("DeleteCustomer.aspx");
+        }
+        else
+        {
+            lblError.Text = "Please select a record to delete from the list";
+        }
+
+    }
+
+    protected void Button1_Click2(object sender, EventArgs e)
+    {
+        Int32 customer_id;
+
+        if (lstCustomerList.SelectedIndex != 1)
+        {
+            customer_id = Convert.ToInt32(lstCustomerList.SelectedValue);
+            Session["customer_id"] = customer_id;
+
+            Response.Redirect("ACustomer.aspx");
+        }
+        else
+        {
+            lblError.Text = "Please select a record to update from the list";
+        }
+    }
+
+    protected void Button1_Click3(object sender, EventArgs e)
+    {
+        clsCustomerCollection Customers = new clsCustomerCollection();
+        Customers.ReportByEmail(emailInput.Text);
+        lstCustomerList.DataSource = Customers.CustomerList;
+
+        lstCustomerList.DataValueField = "customer_id";
+        lstCustomerList.DataTextField = "email";
+        lstCustomerList.DataBind();
+    }
+
+    protected void Clear_Click(object sender, EventArgs e)
+    {
+        clsCustomerCollection Customers = new clsCustomerCollection();
+        Customers.ReportByEmail("");
+
+        emailInput.Text = "";
+        lstCustomerList.DataValueField = "customer_id";
+        lstCustomerList.DataTextField = "email";
+        lstCustomerList.DataBind();
     }
 }
