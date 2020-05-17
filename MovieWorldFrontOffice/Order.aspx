@@ -38,6 +38,8 @@
             <br />
             <br />
             <asp:Button ID="ButtonOk" runat="server" OnClick="ButtonOk_Click" Text="Ok" />
+                &nbsp;&nbsp;
+                <asp:Button ID="ButtonCancel" runat="server" Text="Cancel" />
         </div>
     </form>
 </body>
