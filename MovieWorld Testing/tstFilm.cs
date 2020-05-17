@@ -924,5 +924,27 @@ namespace MovieWorld_Testing
             Assert.AreNotEqual(Error, "");
         }
 
+        [TestMethod]
+        public void AddMethod()
+        {
+            clsFilmCollection AllFilms = new clsFilmCollection();
+
+            clsFilm TestFilm = new clsFilm();
+            Int32 PrimaryKey = 0;
+
+            TestFilm.FilmName = "Frazers Film";
+            TestFilm.FilmDescription = "test description, test description, test description, " +
+                "test description, test description, ";
+            TestFilm.FilmCertificate = "12";
+            TestFilm.FilmReleaseDate = DateTime.Now.Date;
+            TestFilm.FilmDepartureDate = DateTime.Now.Date.AddYears(1);
+
+            AllFilms.ThisFilm = TestFilm;
+            PrimaryKey = AllFilms.Add();
+            TestFilm.FilmID = PrimaryKey;
+            AllFilms.ThisFilm.Find(PrimaryKey);
+            Assert.AreEqual(AllFilms.ThisFilm, TestFilm);
+        }
+
     }
 }

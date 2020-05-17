@@ -35,8 +35,13 @@ public partial class AFilm : System.Web.UI.Page
             AFilm.FilmCertificate = FilmCertificate;
             AFilm.FilmReleaseDate = Convert.ToDateTime(FilmReleaseDate);
             AFilm.FilmDepartureDate = Convert.ToDateTime(FilmDepartureDate);
-            Session["AFilm"] = AFilm;
+
+            clsFilmCollection FilmList = new clsFilmCollection();
+            FilmList.ThisFilm = AFilm;
+            FilmList.Add();
             Response.Redirect("FilmViewer.aspx");
+
+            //Session["AFilm"] = AFilm;
         }
         else
         {
